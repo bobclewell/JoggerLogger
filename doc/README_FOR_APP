@@ -1,0 +1,27 @@
+Use this README file to introduce your application and point to useful places in the API for learning more.
+Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+1. When a user signs-up they should get asked to set their first goal.
+
+2. After a user sets their goal they should get prompted to enter a run.
+
+3. If they enter a run they should got to the jogs index page that lists their recent runs, their goal and a message about their goal progress.
+
+4. When a user logs a second time and beyond they should get prompted to enter a new run (time, distance, notes) or skip to home.
+
+5. Every time a run is entered the system should check to see if their active goal was accomplished.
+
+6. When a user enter's achieves a goal they should get a congratulatory message. Option to post to Twitter or Facebook.
+
+7. After this, the home page should say 'Goal Accomplished!' and have an option to enter a new goal.
+
+
+== Goal types ==
+-- Single jog goals --
+1. distance (run a marathon)
+2. period of time (run for an hour)
+3. distance in a period of time (run a 5k in 28 minutes)
+4. maintain a pace over a distance (run a 10 miler at a 9 min per mile pace)
+
+-- Multi run goals --
+1. Accumulate a distance over time (run 600 miles this year)

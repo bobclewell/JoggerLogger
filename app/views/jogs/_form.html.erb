@@ -1,0 +1,33 @@
+<%= form_for(@jog) do |f| %>
+  <% if @jog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@jog.errors.count, "error") %> prohibited this jog from being saved:</h2>
+
+      <ul>
+      <% @jog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :jogged_at %><br />
+    <%= f.datetime_select :jogged_at %>
+  </div>
+  <div class="field">
+    <%= f.label :seconds %><br />
+    <%= f.number_field :seconds %>
+  </div>
+  <div class="field">
+    <%= f.label :miles %><br />
+    <%= f.number_field :miles %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br />
+    <%= f.text_field :notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

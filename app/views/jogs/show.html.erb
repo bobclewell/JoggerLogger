@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Jogged at:</b>
+  <%= @jog.jogged_at %>
+</p>
+
+<p>
+  <b>Seconds:</b>
+  <%= @jog.seconds %>
+</p>
+
+<p>
+  <b>Miles:</b>
+  <%= @jog.miles %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @jog.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_jog_path(@jog) %> |
+<%= link_to 'Back', jogs_path %>
