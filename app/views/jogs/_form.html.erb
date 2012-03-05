@@ -12,20 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :jogged_at %><br />
-    <%= f.datetime_select :jogged_at %>
+    <%= f.label :jogged_at, "Date:" %>
+    <%= f.text_field :jogged_at, :value => Date.today.strftime("%-m/%-d/%Y") %>
+    click/tap to change
   </div>
   <div class="field">
-    <%= f.label :seconds %><br />
-    <%= f.number_field :seconds %>
+    <%= f.label :miles, "Distance:" %>
+    <%= f.text_field :miles %>
+    <%= current_user.distance_unit %>
   </div>
   <div class="field">
-    <%= f.label :miles %><br />
-    <%= f.number_field :miles %>
+    <%= f.label :seconds, "Time:" %>
+    <%= f.text_field :seconds %>
+    hh:mm:ss
   </div>
   <div class="field">
-    <%= f.label :notes %><br />
-    <%= f.text_field :notes %>
+    <%= f.label :notes, "Notes:" %><br />
+    <%= f.text_area :notes, :rows => "5", :cols => "60" %>
   </div>
   <div class="actions">
     <%= f.submit %>
