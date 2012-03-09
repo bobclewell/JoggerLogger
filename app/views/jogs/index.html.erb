@@ -1,14 +1,12 @@
 <h1>Listing jogs</h1>
 
-<p>Miles run this year <%= Jog.current_users_total_miles(current_user) %></p>
+<p>Miles run this year: <%= Jog.current_users_total_miles(current_user) %></p>
 
 <table>
   <tr>
     <th>Jogged at</th>
     <th>Seconds</th>
     <th>Miles</th>
-    <th>Notes</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -18,10 +16,8 @@
     <td><%= jog.jogged_at_string %></td>
     <td><%= jog.display_time %></td>
     <td><%= jog.miles %></td>
-    <td><%= jog.notes %></td>
-    <td><%= link_to 'Show', jog %></td>
     <td><%= link_to 'Edit', edit_jog_path(jog) %></td>
-    <td><%= link_to 'Destroy', jog, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Delete', jog, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
