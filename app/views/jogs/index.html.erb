@@ -15,8 +15,8 @@
 
 <% @jogs.each do |jog| %>
   <tr>
-    <td><%= jog.jogged_at.strftime('%-m/%-d/%Y') %></td>
-    <td><%= jog.seconds %></td>
+    <td><%= jog.jogged_at_string %></td>
+    <td><%= jog.display_time %></td>
     <td><%= jog.miles %></td>
     <td><%= jog.notes %></td>
     <td><%= link_to 'Show', jog %></td>
