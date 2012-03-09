@@ -11,39 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :goal_type %><br />
-    <%= f.text_field :goal_type %>
-  </div>
-  <div class="field">
-    <%= f.label :time %><br />
-    <%= f.number_field :time %>
-  </div>
-  <div class="field">
-    <%= f.label :time_unit %><br />
-    <%= f.text_field :time_unit %>
-  </div>
-  <div class="field">
-    <%= f.label :distance %><br />
-    <%= f.number_field :distance %>
-  </div>
-  <div class="field">
-    <%= f.label :distance_unit %><br />
-    <%= f.text_field :distance_unit %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br />
-    <%= f.text_field :notes %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <h1>Select Goal Type</h1>
+  <h2>Single jog goals</h2>
+  <ul>
+    <li><%= link_to_function "distance", "foo" %><span class="hint">run a marathon</span></li>
+    <li><%= link_to_function "total time", "foo" %><span class="hint">run for an hour</span></li>
+    <li><%= link_to_function "distance in a period of time", "foo" %><span class="hint">run a 5k in 28 minutes</span></li>
+    <li><%= link_to_function "maintain a pace over a distance", "foo" %><span class="hint">run a 10 miler at a 9 min per mile pace</span></li>
+  </ul>
+
+  <h2>Multi run goals</h2>
+  <ul>
+    <li><%= link_to_function "Accumulate a distance", "foo" %><span class="hint">run 1000 miles</span></li>
+    <li><%= link_to_function "Accumulate a distance over time", "foo" %><span class="hint">run 600 miles this year</span></li>
+  </ul>
+
+  <%= f.hidden_field :time_unit, :value => "form user's preferences" %>
+  <%= f.hidden_field :distance_unit, :value => "miles or kms" %>
+  <%= f.hidden_field :goal_type, :value => "set when type is selected" %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <%= render "single_distance", :f => f %>
+  <%= render "single_total_time", :f => f %>
+  <%= render "single_distance_in_time", :f => f %>
+  <%= render "single_distance_at_pace", :f => f %>
+  <%= render "multi_distance", :f => f %>
+  <%= render "multi_distance_in_time", :f => f %>
+
 <% end %>

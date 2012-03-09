@@ -1,4 +1,5 @@
 class Goal < ActiveRecord::Base
+  include TimeHelper
 
   scope :deleted, where('deleted_at IS NOT NULL')
   scope :exists, where('deleted_at IS NULL')
