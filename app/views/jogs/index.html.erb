@@ -1,12 +1,14 @@
-<h1>Listing jogs</h1>
+<p>Best run: Depends on Goal</p>
 
 <p>Miles run this year: <%= Jog.current_users_total_miles(current_user) %></p>
 
+<h2>Jog History</h2>
 <table>
   <tr>
     <th>Date</th>
+    <th>Distance</th>
     <th>Time</th>
-    <th>Miles</th>
+    <th>Pace</th>
     <th></th>
     <th></th>
   </tr>
@@ -14,8 +16,9 @@
 <% @jogs.each do |jog| %>
   <tr>
     <td><%= jog.jogged_at_string %></td>
-    <td><%= jog.display_time %></td>
     <td><%= jog.miles %></td>
+    <td><%= jog.display_time %></td>
+    <td><%= jog.pace %></td>
     <td><%= link_to 'Edit', edit_jog_path(jog) %></td>
     <td><%= link_to 'Delete', jog, confirm: 'Are you sure?', method: :delete %></td>
   </tr>

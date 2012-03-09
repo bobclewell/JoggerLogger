@@ -7,6 +7,11 @@ module TimeHelper
     # If you get some class methods put them here.
   end
 
+  def pace
+    pace = self.seconds / self.miles
+    pace = seconds_to_time(pace)
+  end
+
   def time_to_seconds(time_string)
     time_string = time_string.split(':')
     if time_string.length == 3
@@ -26,13 +31,18 @@ module TimeHelper
 
   def seconds_to_time(seconds)
     hours = seconds / 3600
-    minutes = (seconds / 60) - (hours * 60)
+    if hours < 1
+      hours = 0
+      minutes = (seconds / 60)
+    else 
+      minutes = (seconds / 60) - (hours * 60)
+    end
     actual_seconds = seconds%60
     actual_seconds = "0#{actual_seconds}" if actual_seconds < 10
     if hours > 0
-      "#{hours}:#{minutes}:#{actual_seconds}"
+      "#{hours.to_i}:#{minutes.to_i}:#{actual_seconds.to_i}"
     else
-      "#{minutes}:#{actual_seconds}"
+      "#{minutes.to_i}:#{actual_seconds.to_i}"
     end
   end
 
