@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120304215306) do
+ActiveRecord::Schema.define(:version => 20120305044232) do
 
   create_table "goals", :force => true do |t|
     t.string   "name"
@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(:version => 20120304215306) do
   create_table "jogs", :force => true do |t|
     t.datetime "jogged_at"
     t.integer  "seconds"
-    t.integer  "miles"
+    t.decimal  "miles",      :precision => 6, :scale => 3
     t.integer  "user_id"
     t.string   "notes"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.datetime "deleted_at"
   end
 

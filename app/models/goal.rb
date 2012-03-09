@@ -1,7 +1,7 @@
 class Goal < ActiveRecord::Base
 
   def achieved?
-    
+        
   end
 
   def single_distance_achieved?
@@ -21,7 +21,7 @@ class Goal < ActiveRecord::Base
 
   def multi_distance_in_time_achieved?
   end
-  
+
 
 # == Goal types ==
 # -- Single jog goals --
