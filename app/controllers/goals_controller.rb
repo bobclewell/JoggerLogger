@@ -75,7 +75,7 @@ class GoalsController < ApplicationController
   # DELETE /goals/1.json
   def destroy
     @goal = Goal.find(params[:id])
-    @goal.destroy
+    @goal.logically_delete
 
     respond_to do |format|
       format.html { redirect_to goals_url }

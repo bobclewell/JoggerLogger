@@ -2,7 +2,7 @@
 
 <p>
   <b>Jogged at:</b>
-  <%= @jog.jogged_at %>
+  <%= @jog.jogged_at.strftime('%-m/%-d/%Y') %>
 </p>
 
 <p>
@@ -20,6 +20,6 @@
   <%= @jog.notes %>
 </p>
 
-
+<%= link_to 'Back', jogs_path %> |
 <%= link_to 'Edit', edit_jog_path(@jog) %> |
-<%= link_to 'Back', jogs_path %>
+<%= link_to 'Add Another', new_jog_path %>

@@ -1,7 +1,10 @@
 class Goal < ActiveRecord::Base
 
+  scope :deleted, where('deleted_at IS NOT NULL')
+  scope :exists, where('deleted_at IS NULL')
+
   def achieved?
-        
+
   end
 
   def single_distance_achieved?
@@ -22,6 +25,10 @@ class Goal < ActiveRecord::Base
   def multi_distance_in_time_achieved?
   end
 
+  def logically_delete
+    self.deleted_at = Time.now
+    self.save
+  end
 
 # == Goal types ==
 # -- Single jog goals --

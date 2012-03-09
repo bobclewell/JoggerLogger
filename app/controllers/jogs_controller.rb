@@ -4,7 +4,7 @@ class JogsController < ApplicationController
   # GET /jogs
   # GET /jogs.json
   def index
-    @jogs = Jog.all
+    @jogs = Jog.exists
 
     respond_to do |format|
       format.html # index.html.erb
@@ -75,7 +75,7 @@ class JogsController < ApplicationController
   # DELETE /jogs/1.json
   def destroy
     @jog = Jog.find(params[:id])
-    @jog.destroy
+    @jog.logically_delete
 
     respond_to do |format|
       format.html { redirect_to jogs_url }

@@ -11,9 +11,10 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <div class="field">
     <%= f.label :jogged_at, "Date:" %>
-    <%= f.text_field :jogged_at, :value => Date.today.strftime("%-m/%-d/%Y") %>
+    <%= f.text_field :jogged_at_string, :value => Date.today.strftime("%-m/%-d/%Y") %>
     click/tap to change
   </div>
   <div class="field">
