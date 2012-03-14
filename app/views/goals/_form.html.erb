@@ -11,31 +11,57 @@
     </div>
   <% end %>
 
-  <h1>Select Goal Type</h1>
-  <h2>Single jog goals</h2>
-  <ul>
-    <li><%= link_to_function "distance", "foo" %><span class="hint">run a marathon</span></li>
-    <li><%= link_to_function "total time", "foo" %><span class="hint">run for an hour</span></li>
-    <li><%= link_to_function "distance in a period of time", "foo" %><span class="hint">run a 5k in 28 minutes</span></li>
-    <li><%= link_to_function "maintain a pace over a distance", "foo" %><span class="hint">run a 10 miler at a 9 min per mile pace</span></li>
-  </ul>
+  <div id="goal_selection">
+    <h1>Select Goal Type</h1>
+    <h2>Single jog goals</h2>
+    <ul>
+      <li class="single_distance goal_type">Distance<span class="hint">run a marathon</span></li>
+      <li class="single_total_time goal_type">Total Time<span class="hint">run for an hour</span></li>
+      <li class="single_distance_in_time goal_type">Distance in a Period of Time<span class="hint">run a 5k in 28 minutes</span></li>
+      <li class="single_distance_at_a_pace goal_type">Maintain a Pace Over a Distance<span class="hint">run a 10 miler at a 9 min per mile pace</span></li>
+    </ul>
 
-  <h2>Multi run goals</h2>
-  <ul>
-    <li><%= link_to_function "Accumulate a distance", "foo" %><span class="hint">run 1000 miles</span></li>
-    <li><%= link_to_function "Accumulate a distance over time", "foo" %><span class="hint">run 600 miles this year</span></li>
-  </ul>
+    <h2>Multi run goals</h2>
+    <ul>
+      <li class="multi_distance goal_type">Accumulate a Distance<span class="hint"><span class="hint">run 1000 miles</span></li>
+      <li class="multi_distance_in_time goal_type">Accumulate a Distance Over Time<span class="hint">run 600 miles this year</span></li>
+    </ul>
+  </div><!-- /goal_selection -->
 
-  <%= f.hidden_field :time_unit, :value => "form user's preferences" %>
-  <%= f.hidden_field :distance_unit, :value => "miles or kms" %>
-  <%= f.hidden_field :goal_type, :value => "set when type is selected" %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <div id="goal_form">
+    <h1>Set Goal</h1>
+    <h2 class="single_distance">Single: Distance</h2>
+    <h2 class="single_total_time">Single: Total Time</h2>
+    <h2 class="single_distance_in_time">Single: Distance in a Period of Time</h2>
+    <h2 class="single_distance_at_a_pace">Single: Maintain a Pace Over a Distance</h2>
+    <h2 class="multi_distance">Multi: Distance</h2>
+    <h2 class="multi_distance_in_time">Multi: Distance Over a Period of Time</h2>
 
-  <%= render "single_distance", :f => f %>
-  <%= render "single_total_time", :f => f %>
-  <%= render "single_distance_in_time", :f => f %>
-  <%= render "single_distance_at_pace", :f => f %>
-  <%= render "multi_distance", :f => f %>
-  <%= render "multi_distance_in_time", :f => f %>
+    <%= f.hidden_field :time_unit, :value => "form user's preferences" %>
+    <%= f.hidden_field :distance_unit, :value => current_user.distance_unit %>
+    <%= f.hidden_field :goal_type %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+
+    <div class="all">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="distance">
+      <%= f.label :distance %><br />
+      <%= f.text_field :distance %>
+    </div>
+    <div class="time">
+      <%= f.label :time %><br />
+      <%= f.text_field :time %>
+    </div>
+    <div class="all">
+      <%= f.label :notes %><br />
+      <%= f.text_field :notes %>
+    </div>
+    <div class="all">
+      <%= f.submit %>
+    </div>
+    <span id="back">Change Goal Type</span>
+  </div><!-- /goal_form -->
 
 <% end %>
