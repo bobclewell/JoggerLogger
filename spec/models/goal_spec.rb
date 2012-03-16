@@ -39,6 +39,28 @@ describe Goal do
     end
   end
 
+  context "when a single total time goal is set" do
+    before(:each) do
+      @user = Factory(:user)
+      @goal = Factory(:single_total_time_1_hour)
+    end
+
+    it "should not get marked achieved if the time is less than the goal" do
+      @jog = Jog.create(:seconds => 3000)
+      @goal.single_total_time_achieved?(@jog, @user).should_not be_true
+    end
+
+    it "should get marked achieved if the time is equal to the the goal" do
+      @jog = Jog.create(:seconds => 3600)
+      @goal.single_total_time_achieved?(@jog, @user).should be_true
+    end
+
+    it "should get marked achieved if the time is greater than the the goal" do
+      @jog = Jog.create(:seconds => 4500)
+      @goal.single_total_time_achieved?(@jog, @user).should be_true
+    end
+
+  end
   # def single_total_time_achieved?
   # end
 

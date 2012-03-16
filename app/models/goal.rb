@@ -11,7 +11,8 @@ class Goal < ActiveRecord::Base
     true if jog.miles >= current_user.current_goal.miles
   end
 
-  def single_total_time_achieved?
+  def single_total_time_achieved?(jog, current_user)
+    true if jog.seconds >= current_user.current_goal.time
   end
 
   def single_distance_in_time_achieved?
