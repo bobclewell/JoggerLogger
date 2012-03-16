@@ -12,6 +12,7 @@ class Jog < ActiveRecord::Base
     when current_user.current_goal == "1"
       true if Goal.single_distance_achieved?(self, current_user)
     when current_user.current_goal == "2"
+      true if Goal.single_total_time_achieved?(self, current_user)
     when current_user.current_goal == "3"
     when current_user.current_goal == "4"
     when current_user.current_goal == "5"

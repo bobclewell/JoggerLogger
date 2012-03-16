@@ -61,8 +61,6 @@ describe Goal do
     end
 
   end
-  # def single_total_time_achieved?
-  # end
 
   # def single_distance_in_time_achieved?
   # end
