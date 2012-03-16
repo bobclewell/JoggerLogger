@@ -7,6 +7,18 @@ class Jog < ActiveRecord::Base
   scope :deleted, where('deleted_at IS NOT NULL')
   scope :exists, where('deleted_at IS NULL')
 
+  def goal_achieved_for(current_user)
+    case self
+    when current_user.current_goal == "1"
+      true if Goal.single_distance_achieved?(self, current_user)
+    when current_user.current_goal == "2"
+    when current_user.current_goal == "3"
+    when current_user.current_goal == "4"
+    when current_user.current_goal == "5"
+    when current_user.current_goal == "6"
+    end
+  end
+
   def self.current_users_total_miles(current_user)
     jogs = Jog.find_all_by_user_id(current_user)
     total_miles = 0
@@ -22,7 +34,6 @@ class Jog < ActiveRecord::Base
 
   def jogged_at_string=(jogged_at_str)
     self.jogged_at = Date.strptime jogged_at_str, '%m/%d/%Y' unless jogged_at_str.nil?
-    self.save
   end
 
   def logically_delete

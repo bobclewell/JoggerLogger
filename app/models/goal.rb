@@ -1,14 +1,14 @@
 class Goal < ActiveRecord::Base
   include TimeHelper
 
+  validate :user_can_only_have_one_current_goal
+
   scope :deleted, where('deleted_at IS NOT NULL')
   scope :exists, where('deleted_at IS NULL')
-
-  def achieved?
-
-  end
-
-  def single_distance_achieved?
+  scope :current, where('current = true')
+ 
+  def single_distance_achieved?(jog, current_user)
+    true if jog.miles >= current_user.current_goal.miles
   end
 
   def single_total_time_achieved?
@@ -24,6 +24,13 @@ class Goal < ActiveRecord::Base
   end
 
   def multi_distance_in_time_achieved?
+  end
+
+  def user_can_only_have_one_current_goal
+    users_other_goals = Goal.find_by_user_id(self.user_id)
+    if users_other_goals #there is more than one current goal
+      errors.add(:current) << "There can only be one current goal for this user."
+    end
   end
 
   def logically_delete

@@ -1,5 +1,57 @@
 require 'spec_helper'
 
 describe Goal do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  context "when one goal already exists for a user" do
+    before(:each) do
+      @user = Factory(:user)
+      @goal_one = Factory(:single_distance_10_miles)
+    end
+
+    it "should not save when trying to add a second current goal." do
+      new_goal = Goal.create(:name => "New Longer Goal",
+                             :goal_type => "1",
+                             :current => true,
+                             :user_id => 1)
+      new_goal.save.should be_false
+    end
+  end
+
+  context "when a single distance goal is set" do
+    before(:each) do
+      @user = Factory(:user)
+      @goal = Factory(:single_distance_10_miles)
+    end
+
+    it "should not get marked achieved if the distance is not run." do
+      @jog = Jog.create(:miles => 9)
+      @goal.single_distance_achieved?(@jog, @user).should_not be_true
+    end
+
+    it "should get marked goal achieved when the distance is run." do
+      @jog = Jog.create(:miles => 10)
+      @goal.single_distance_achieved?(@jog, @user).should be_true
+    end
+
+    it "should get marked goal achieved when a greater distance is run." do
+      @jog = Jog.create(:miles => 11)
+      @goal.single_distance_achieved?(@jog, @user).should be_true
+    end
+  end
+
+  # def single_total_time_achieved?
+  # end
+
+  # def single_distance_in_time_achieved?
+  # end
+
+  # def single_distance_at_pace_achieved?
+  # end
+
+  # def multi_distance_achieved?
+  # end
+
+  # def multi_distance_in_time_achieved?
+  # end
+
 end

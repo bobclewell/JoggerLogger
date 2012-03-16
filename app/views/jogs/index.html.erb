@@ -10,7 +10,6 @@
     <th>Time</th>
     <th>Pace</th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @jogs.each do |jog| %>
@@ -19,7 +18,6 @@
     <td><%= jog.miles %></td>
     <td><%= jog.display_time %></td>
     <td><%= jog.pace %></td>
-    <td><%= link_to 'Edit', edit_jog_path(jog) %></td>
     <td><%= link_to 'Delete', jog, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>

@@ -11,4 +11,10 @@ class User < ActiveRecord::Base
   has_many :goals
 
   DISTANCE_UNIT = %w[ miles kms ]
+
+  def current_goal
+    current_goal = Goal.find_all_by_user_id_and_current(self.id, true)
+    current_goal.first
+  end
+
 end

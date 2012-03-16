@@ -11,21 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305044232) do
+ActiveRecord::Schema.define(:version => 20120316023138) do
 
   create_table "goals", :force => true do |t|
     t.string   "name"
     t.string   "goal_type"
     t.integer  "time"
     t.string   "time_unit"
-    t.integer  "distance"
-    t.string   "distance_unit"
     t.string   "notes"
     t.integer  "user_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
     t.datetime "achieved_at"
     t.datetime "deleted_at"
+    t.boolean  "current"
+    t.decimal  "miles",       :precision => 10, :scale => 0
   end
 
   create_table "jogs", :force => true do |t|
