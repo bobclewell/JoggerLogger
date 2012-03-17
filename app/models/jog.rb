@@ -7,15 +7,6 @@ class Jog < ActiveRecord::Base
   scope :deleted, where('deleted_at IS NOT NULL')
   scope :exists, where('deleted_at IS NULL')
 
-  def self.current_users_total_miles(current_user)
-    jogs = Jog.find_all_by_user_id(current_user)
-    total_miles = 0
-    jogs.each do |jog|
-      total_miles += jog.miles if jog.deleted_at.nil?
-    end
-    total_miles
-  end
-
   def goal_achieved_for(current_user)
     case current_user.current_goal.goal_type
     when "1"

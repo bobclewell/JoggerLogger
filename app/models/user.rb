@@ -17,4 +17,22 @@ class User < ActiveRecord::Base
     current_goal.first
   end
 
+  def total_miles
+    jogs = Jog.exists.where("user_id = ?", self.id)
+    total_miles = 0
+    jogs.each do |jog|
+      total_miles += jog.miles
+    end
+    total_miles
+  end
+
+  def total_miles_since(start_date)
+    jogs = Jog.exists.where("user_id = ? AND created_at >= ?", self.id, start_date)
+    total_miles = 0
+    jogs.each do |jog|
+      total_miles += jog.miles
+    end
+    total_miles
+  end
+
 end
