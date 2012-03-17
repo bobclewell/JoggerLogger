@@ -4,14 +4,14 @@ module TimeHelper
   end
 
   module ClassMethods
-    # If you get some class methods put them here.
+    # If you create class methods for this module put them here.
   end
 
   def pace
     if self.class.name == "Goal" && self.time_unit == "seconds"
-      pace = self.time / self.miles
+      pace = self.time / self.miles unless self.time.blank?
     else
-      pace = self.seconds / self.miles
+      pace = self.seconds / self.miles unless self.seconds.blank?
     end
     pace = seconds_to_time(pace)
   end
@@ -42,6 +42,7 @@ module TimeHelper
   end
 
   def seconds_to_time(seconds)
+    return "0:00" if seconds.blank?
     hours = seconds / 3600
     if hours < 1
       hours = 0
