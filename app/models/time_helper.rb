@@ -8,8 +8,20 @@ module TimeHelper
   end
 
   def pace
-    pace = self.seconds / self.miles
+    if self.class.name == "Goal" && self.time_unit == "seconds"
+      pace = self.time / self.miles
+    else
+      pace = self.seconds / self.miles
+    end
     pace = seconds_to_time(pace)
+  end
+
+  def pace_in_seconds
+    if self.class.name == "Goal" && self.time_unit == "seconds"
+      pace = self.time / self.miles
+    else
+      pace = self.seconds / self.miles
+    end
   end
 
   def time_to_seconds(time_string)

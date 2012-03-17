@@ -21,7 +21,10 @@ class Goal < ActiveRecord::Base
     true if distance_achieved && time_achieved
   end
 
-  def single_distance_at_pace_achieved?
+  def single_distance_at_pace_achieved?(jog, current_user)
+    distance_achieved = true if jog.miles >= current_user.current_goal.miles
+    time_achieved = true if jog.pace_in_seconds <= current_user.current_goal.time.to_f
+    true if distance_achieved && time_achieved
   end
 
   def multi_distance_achieved?
@@ -30,9 +33,10 @@ class Goal < ActiveRecord::Base
   def multi_distance_in_time_achieved?
   end
 
+  # Custom validation method
   def user_can_only_have_one_current_goal
     users_other_goals = Goal.find_by_user_id(self.user_id)
-    if users_other_goals #there is more than one current goal
+    if users_other_goals
       errors.add(:current) << "There can only be one current goal for this user."
     end
   end

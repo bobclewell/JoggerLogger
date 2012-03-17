@@ -30,6 +30,23 @@ FactoryGirl.define do
     current true
   end
 
+  factory :single_3_miles_at_9_minute_pace, :class => Goal do
+    goal_type "4"
+    miles 3
+    time_unit "seconds"
+    time 540
+    user_id 1
+    current true
+  end
+
+  factory :multi_run_1000_miles, :class => Goal do
+    goal_type "5"
+    miles 1000
+    user_id 1
+    current true
+    created_at "2012-01-01"
+  end
+
   # factory :single_distance_goal, :class => Goal do
   #   goal_type
   #   time
