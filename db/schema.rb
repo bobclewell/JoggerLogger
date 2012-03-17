@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120316023138) do
+ActiveRecord::Schema.define(:version => 20120317012531) do
 
   create_table "goals", :force => true do |t|
     t.string   "name"
@@ -20,22 +20,22 @@ ActiveRecord::Schema.define(:version => 20120316023138) do
     t.string   "time_unit"
     t.string   "notes"
     t.integer  "user_id"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.datetime "achieved_at"
     t.datetime "deleted_at"
     t.boolean  "current"
-    t.decimal  "miles",       :precision => 10, :scale => 0
+    t.float    "miles"
   end
 
   create_table "jogs", :force => true do |t|
     t.datetime "jogged_at"
     t.integer  "seconds"
-    t.decimal  "miles",      :precision => 6, :scale => 3
+    t.float    "miles"
     t.integer  "user_id"
     t.string   "notes"
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.datetime "deleted_at"
   end
 
