@@ -38,17 +38,17 @@
     <h2 class="multi_distance_in_time">Multi: Distance Over a Period of Time</h2>
 
     <%= f.hidden_field :time_unit, :value => "form user's preferences" %>
-    <%= f.hidden_field :distance_unit, :value => current_user.distance_unit %>
     <%= f.hidden_field :goal_type %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :started_at, :value => "#{Time.now}" %>
 
     <div class="all">
       <%= f.label :name, "Goal name:" %><br />
       <%= f.text_field :name %>
     </div>
     <div class="distance">
-      <%= f.label :distance %><br />
-      <%= f.text_field :distance %>
+      <%= f.label :miles %><br />
+      <%= f.text_field :miles %>
     </div>
     <div class="time">
       <%= f.label :time %><br />

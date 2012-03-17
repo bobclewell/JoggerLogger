@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120317012531) do
+ActiveRecord::Schema.define(:version => 20120317025949) do
 
   create_table "goals", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20120317012531) do
     t.datetime "deleted_at"
     t.boolean  "current"
     t.float    "miles"
+    t.datetime "started_at"
   end
 
   create_table "jogs", :force => true do |t|
