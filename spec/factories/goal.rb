@@ -21,6 +21,15 @@ FactoryGirl.define do
     current true
   end
 
+  factory :single_6_miles_in_1_hour, :class => Goal do
+    goal_type "3"
+    miles 6
+    time_unit "seconds"
+    time 3600
+    user_id 1
+    current true
+  end
+
   # factory :single_distance_goal, :class => Goal do
   #   goal_type
   #   time

@@ -59,7 +59,43 @@ describe Goal do
       @jog = Jog.create(:seconds => 4500)
       @goal.single_total_time_achieved?(@jog, @user).should be_true
     end
+  end
 
+  context "when a single distance in a time goal is set" do
+    before(:each) do
+      @user = Factory(:user)
+      @goal = Factory(:single_6_miles_in_1_hour)
+    end
+
+    it "should not get marked achieved if the distance is too short." do
+      @jog = Jog.create(:miles => 5.5, :seconds => 3300)
+      @goal.single_distance_in_time_achieved?(@jog, @user).should_not be_true
+    end
+
+    it "should not get marked achieved if the distance is equal, but the time to too long." do
+      @jog = Jog.create(:miles => 6.0, :seconds => 5500)
+      @goal.single_distance_in_time_achieved?(@jog, @user).should_not be_true
+    end
+
+    it "should not get marked achieved if the distance is greater than, but the time to too long." do
+      @jog = Jog.create(:miles => 8.5, :seconds => 5500)
+      @goal.single_distance_in_time_achieved?(@jog, @user).should_not be_true
+    end
+
+    it "should get marked achieved if the distance is equal, and the time is equal." do
+      @jog = Jog.create(:miles => 6.0, :seconds => 3600)
+      @goal.single_distance_in_time_achieved?(@jog, @user).should be_true
+    end
+
+    it "should get marked achieved if the distance is greater than, and the time is less than the goal." do
+      @jog = Jog.create(:miles => 6.4, :seconds => 3333)
+      @goal.single_distance_in_time_achieved?(@jog, @user).should be_true
+    end
+
+    it "should get marked achieved if the distance is greater than, and the time is equal." do
+      @jog = Jog.create(:miles => 6.9, :seconds => 3600)
+      @goal.single_distance_in_time_achieved?(@jog, @user).should be_true
+    end
   end
 
   # def single_distance_in_time_achieved?
