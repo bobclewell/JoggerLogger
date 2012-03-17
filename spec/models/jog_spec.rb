@@ -120,4 +120,35 @@ describe Jog do
       @jog.goal_achieved_for(@user).should be_true
     end
   end
+
+  context "when a multi distance goal is set" do
+    before(:each) do
+      @user = Factory(:user)
+      @goal = Factory(:multi_run_1000_miles)
+    end
+
+    it "should not get market achieved if the distance is less than the goal." do
+      # A couple really long jogs to get to the goal quickly.
+      @jog_1 = Jog.create(:miles => 300.0, :user_id => 1)
+      @jog_2 = Jog.create(:miles => 300.0, :user_id => 1)
+      @jog_3 = Jog.create(:miles => 300.0, :user_id => 1)
+      @jog_3.goal_achieved_for(@user).should_not be_true
+    end
+
+    it "should get market achieved if the distance is equal to the goal." do
+      # A couple really long jogs to get to the goal quickly.
+      @jog_1 = Jog.create(:miles => 300.0, :user_id => 1)
+      @jog_2 = Jog.create(:miles => 300.0, :user_id => 1)
+      @jog_3 = Jog.create(:miles => 400.0, :user_id => 1)
+      @jog_3.goal_achieved_for(@user).should be_true
+    end
+
+    it "should get market achieved if the distance is greater than the goal." do
+      # A couple really long jogs to get to the goal quickly.
+      @jog_1 = Jog.create(:miles => 300.0, :user_id => 1)
+      @jog_2 = Jog.create(:miles => 300.0, :user_id => 1)
+      @jog_3 = Jog.create(:miles => 401.0, :user_id => 1)
+      @jog_3.goal_achieved_for(@user).should be_true
+    end
+  end
 end

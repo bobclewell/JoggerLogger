@@ -27,7 +27,8 @@ class Goal < ActiveRecord::Base
     true if distance_achieved && time_achieved
   end
 
-  def multi_distance_achieved?
+  def multi_distance_achieved?(current_user)
+    true if current_user.total_miles_since(self.started_at) >= current_user.current_goal.miles
   end
 
   def multi_distance_in_time_achieved?

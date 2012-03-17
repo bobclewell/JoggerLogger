@@ -44,7 +44,7 @@ FactoryGirl.define do
     miles 1000
     user_id 1
     current true
-    created_at "2012-01-01"
+    started_at "2012-01-01"
   end
 
   # factory :single_distance_goal, :class => Goal do
