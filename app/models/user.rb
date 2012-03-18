@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
     jogs.each do |jog|
       total_miles += jog.miles
     end
-    total_miles
+    total_miles.round(1)
   end
 
   def total_miles_since(start_date)
@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
     jogs.each do |jog|
       total_miles += jog.miles
     end
-    total_miles
+    total_miles.round(1)
   end
 
 end

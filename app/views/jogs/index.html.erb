@@ -20,7 +20,7 @@ Goal: <%= goal_statement(current_user) %>
 <% @jogs.each do |jog| %>
   <tr>
     <td><% if jog.goal_achieved %><b>*</b><% end %>
-    <td><%= time_ago_in_words(jog.jogged_at) %> ago</td>
+    <td><%= jog.jogged_at_string %></td>
     <td><%= jog.miles %></td>
     <td><%= jog.display_time %></td>
     <td><%= jog.pace %></td>
