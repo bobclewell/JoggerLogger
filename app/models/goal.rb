@@ -1,7 +1,7 @@
 class Goal < ActiveRecord::Base
   include TimeHelper
 
-  validate :user_can_only_have_one_current_goal
+  # validate :user_can_only_have_one_current_goal
 
   scope :deleted, where('deleted_at IS NOT NULL')
   scope :exists, where('deleted_at IS NULL')
@@ -37,10 +37,12 @@ class Goal < ActiveRecord::Base
 
   # Custom validation method
   def user_can_only_have_one_current_goal
-    users_other_goals = Goal.find_by_user_id(self.user_id)
-    if users_other_goals
-      errors.add(:current) << "There can only be one current goal for this user."
-    end
+    # FIXME: Look for more than one current goal
+    #
+    # users_other_goals = Goal.find_by_user_id(self.user_id)
+    # if users_other_goals
+    #   errors.add(:current) << "There can only be one current goal for this user."
+    # end
   end
 
   def distance
