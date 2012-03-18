@@ -43,6 +43,10 @@ class JogsController < ApplicationController
   # POST /jogs.json
   def create
     @jog = Jog.new(params[:jog])
+    
+    @jog.check_goal_status_for current_user
+    #   flash[:notice] = 'Goal Achieved!'
+    # end
 
     respond_to do |format|
       if @jog.save

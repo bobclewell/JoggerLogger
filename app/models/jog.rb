@@ -24,6 +24,22 @@ class Jog < ActiveRecord::Base
     end
   end
 
+  # When a new jog is created we check the goal status.
+  # If it is achieved we flag the goal with the achieved at datetime,
+  # and mark this jogs as a jog that achieved a goal
+  # along with the goal_id that it achieved.
+  def check_goal_status_for(current_user)
+    if self.goal_achieved_for(current_user)
+      
+      self.update_attributes(:goal_achieved => true,
+                             :goal_id_achieved => current_user.current_goal.id)
+      
+      current_user.current_goal.update_attributes(:achieved_at => Time.now,
+                                                  :current => false)
+
+    end
+  end
+
   def jogged_at_string
     jogged_at.strftime('%-m/%-d/%Y') unless jogged_at.nil?
   end
