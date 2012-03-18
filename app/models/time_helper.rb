@@ -51,14 +51,14 @@ module TimeHelper
       minutes = (seconds / 60) - (hours * 60)
     end
     actual_seconds = seconds%60
+    formatted_seconds = formatted_time(actual_seconds)
+    foratted_minutes = formatted_time(minutes)
     if hours > 0
-      "#{hours.to_i}:#{minutes.to_i}:#{actual_seconds}"
-    elsif minutes > 0 && actual_seconds.to_i > 9
-      "#{minutes.to_i}:#{actual_seconds.to_i}"
-    elsif minutes > 0 && actual_seconds.to_i < 10
-      "#{minutes.to_i}:0#{actual_seconds.to_i}"
-    else
-      "0:#{actual_seconds}"
+      "#{hours.to_i}:#{foratted_minutes}:#{formatted_seconds}"
+    elsif minutes > 0 && hours < 1
+      "#{minutes.to_i}:#{formatted_seconds}"
+    elsif minutes < 1
+      "0:#{formatted_seconds}"
     end
   end
 
@@ -82,6 +82,14 @@ module TimeHelper
       "#{minutes.to_i} minutes"
     else
       "#{actual_seconds.to_i} seconds"
+    end
+  end
+
+  def formatted_time(seconds_or_minutes)
+    if seconds_or_minutes < 10
+      formatted_seconds = "0#{seconds_or_minutes.round}"
+    else
+      formatted_seconds = seconds_or_minutes.round
     end
   end
 
