@@ -50,7 +50,7 @@ class JogsController < ApplicationController
 
     respond_to do |format|
       if @jog.save
-        format.html { redirect_to @jog, notice: 'Jog was successfully created.' }
+        format.html { redirect_to jogs_path, notice: 'Jog was successfully created.' }
         format.json { render json: @jog, status: :created, location: @jog }
       else
         format.html { render action: "new" }
