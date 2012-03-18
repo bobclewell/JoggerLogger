@@ -151,4 +151,57 @@ describe Jog do
       @jog_3.goal_achieved_for(@user).should be_true
     end
   end
+
+  context "when a multi distance goal is set" do
+    before(:each) do
+      @user = Factory(:user)
+      @goal = Factory(:multi_run_600_miles_in_a_year)
+    end
+
+    it "should not get marked achieved if the distance is reached past the time frame" do
+      # A couple really long jogs to get to the goal quickly.
+      @jog_1 = Jog.create(:miles => 300.0, :user_id => 1, :created_at => "1/1/2011")
+      @jog_2 = Jog.create(:miles => 300.0, :user_id => 1, :created_at => "1/10/2011")
+      @jog_3 = Jog.create(:miles => 401.0, :user_id => 1, :created_at => "2/1/2011")
+      @jog_3.goal_achieved_for(@user).should_not be_true
+    end
+
+    it "should not get marked achieved if the distance is less than the goal when in the time frame" do
+      # A couple really long jogs to get to the goal quickly.
+      @jog_1 = Jog.create(:miles => 30.0, :user_id => 1, :created_at => "1/1/2012")
+      @jog_2 = Jog.create(:miles => 3.0, :user_id => 1, :created_at => "1/10/2012")
+      @jog_3 = Jog.create(:miles => 11.5, :user_id => 1, :created_at => "2/1/2012")
+      @jog_3.goal_achieved_for(@user).should_not be_true
+    end
+
+    it "should get market achieved if the time is equal and the distance is equal" do
+      a_year_ago = Time.now - 1.year
+      a_half_year_ago = Time.now - 6.months
+      yesterday = Time.now - 1.day
+      @jog_1 = Jog.create(:miles => 200.0, :user_id => 1, :created_at => a_year_ago)
+      @jog_2 = Jog.create(:miles => 200.0, :user_id => 1, :created_at => a_half_year_ago)
+      @jog_3 = Jog.create(:miles => 200.0, :user_id => 1, :created_at => yesterday)
+      @jog_3.goal_achieved_for(@user).should be_true
+    end
+
+    it "should get market achieved if the time is less than the time frame and the distance is equal" do
+      a_half_year_ago = Time.now - 6.months
+      two_days_ago = Time.now - 2.days
+      yesterday = Time.now - 1.day
+      @jog_1 = Jog.create(:miles => 200.0, :user_id => 1, :created_at => a_half_year_ago)
+      @jog_2 = Jog.create(:miles => 200.0, :user_id => 1, :created_at => two_days_ago)
+      @jog_3 = Jog.create(:miles => 200.0, :user_id => 1, :created_at => yesterday)
+      @jog_3.goal_achieved_for(@user).should be_true
+    end
+
+    it "should get market achieved if the time is equal and the distance is greater than the goal" do
+      a_year_ago = Time.now - 1.year
+      a_half_year_ago = Time.now - 6.months
+      yesterday = Time.now - 1.day
+      @jog_1 = Jog.create(:miles => 220.0, :user_id => 1, :created_at => a_year_ago)
+      @jog_2 = Jog.create(:miles => 210.0, :user_id => 1, :created_at => a_half_year_ago)
+      @jog_3 = Jog.create(:miles => 250.0, :user_id => 1, :created_at => yesterday)
+      @jog_3.goal_achieved_for(@user).should be_true
+    end
+  end
 end

@@ -47,14 +47,15 @@ FactoryGirl.define do
     started_at "2012-01-01"
   end
 
-  # factory :single_distance_goal, :class => Goal do
-  #   goal_type
-  #   time
-  #   time_unit ""
-  #   distance "10"
-  #   distance_unit "miles"
-  #   user_id
-  # end
+  factory :multi_run_600_miles_in_a_year, :class => Goal do
+    goal_type "6"
+    miles 600
+    time_unit "days"
+    time 365
+    user_id 1
+    current true
+    started_at (Time.now - 1.year)
+  end
 end
 
 # == Goal types ==

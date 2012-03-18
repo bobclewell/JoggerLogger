@@ -31,7 +31,8 @@ class Goal < ActiveRecord::Base
     true if current_user.total_miles_since(self.started_at) >= current_user.current_goal.miles
   end
 
-  def multi_distance_in_time_achieved?
+  def multi_distance_in_time_achieved?(current_user)
+    true if current_user.total_miles_since(self.started_at) >= current_user.current_goal.miles
   end
 
   # Custom validation method
@@ -40,6 +41,21 @@ class Goal < ActiveRecord::Base
     if users_other_goals
       errors.add(:current) << "There can only be one current goal for this user."
     end
+  end
+
+  def distance
+    user = User.find_by_id(self.user_id)
+    if user.distance_unit == "kms"
+      distance = miles_to_kms(miles)
+    elsif user.distance_unit == "miles"
+      distance = miles
+    else
+      "ERROR: Unknown distance unit!"
+    end
+  end
+
+  def miles_to_kms(miles)
+    kms = miles * 1.609344
   end
 
   def logically_delete
