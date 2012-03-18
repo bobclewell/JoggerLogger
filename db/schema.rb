@@ -35,10 +35,11 @@ ActiveRecord::Schema.define(:version => 20120318024658) do
     t.float    "miles"
     t.integer  "user_id"
     t.string   "notes"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.datetime "deleted_at"
     t.boolean  "goal_achieved"
+    t.integer  "goal_id_achieved"
   end
 
   create_table "users", :force => true do |t|
