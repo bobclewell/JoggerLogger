@@ -2,12 +2,12 @@
 
 <!-- TODO: Best run logic <p>Best run: This is tricky because it depends on Goal</p> -->
 
-<p>Miles run this year: <%= current_user.total_miles %></p>
+<p><%= current_user.distance_unit.humanize %> run in <%= Time.now.strftime("%Y") %>: <%= current_user.total_miles %></p>
 
 <h2>Jog History</h2>
 <table>
   <tr>
-    <th>Date</th>
+    <th>When</th>
     <th>Distance</th>
     <th>Time</th>
     <th>Pace</th>
@@ -16,7 +16,7 @@
 
 <% @jogs.each do |jog| %>
   <tr>
-    <td><%= jog.jogged_at_string %></td>
+    <td><%= time_ago_in_words(jog.jogged_at) %> ago</td>
     <td><%= jog.miles %></td>
     <td><%= jog.display_time %></td>
     <td><%= jog.pace %></td>
