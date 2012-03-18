@@ -40,6 +40,7 @@
     <%= f.hidden_field :time_unit, :value => "form user's preferences" %>
     <%= f.hidden_field :goal_type %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :current, :value => true %>
     <%= f.hidden_field :started_at, :value => "#{Time.now}" %>
 
     <div class="all">
