@@ -62,7 +62,7 @@ module TimeHelper
     end
   end
 
-  # Method that outputs more human language time.
+  # Method that outputs time in more human friendly language.
   # e.g. "1 hour 25 minutes and 30 seconds"
   def seconds_to_time_humanized(seconds)
     return "0 Seconds" if seconds.blank?
