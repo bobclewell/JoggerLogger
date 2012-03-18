@@ -2,9 +2,11 @@
 
 <!-- TODO: Best run logic <p>Best run: This is tricky because it depends on Goal</p> -->
 
-<p><%= current_user.distance_unit.humanize %> run in <%= Time.now.strftime("%Y") %>: <%= current_user.total_miles %></p>
+<p><%= current_user.distance_unit.humanize %> logged to date: <%= current_user.total_miles %></p>
 
-<h2>Jog History</h2>
+<%= link_to 'New Jog', new_jog_path %>
+
+<h2>Recent Jogs</h2>
 <table>
   <tr>
     <th>When</th>
@@ -24,7 +26,3 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Jog', new_jog_path %>

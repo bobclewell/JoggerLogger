@@ -76,8 +76,10 @@ module TimeHelper
     actual_seconds = seconds%60
     if hours > 0
       "#{hours.to_i} hours #{minutes.to_i} minutes and #{actual_seconds.to_i} seconds"
-    elsif minutes > 0
+    elsif minutes > 0 && actual_seconds > 0
       "#{minutes.to_i} minutes and #{actual_seconds.to_i} seconds"
+    elsif minutes > 0
+      "#{minutes.to_i} minutes"
     else
       "#{actual_seconds.to_i} seconds"
     end
