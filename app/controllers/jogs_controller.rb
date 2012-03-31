@@ -4,7 +4,7 @@ class JogsController < ApplicationController
   # GET /jogs
   # GET /jogs.json
   def index
-    @jogs = Jog.order("jogged_at").exists
+    @jogs = Jog.order("jogged_at DESC").exists
 
     respond_to do |format|
       format.html # index.html.erb
