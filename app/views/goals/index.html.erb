@@ -5,12 +5,8 @@
     <th>Name</th>
     <th>Goal type</th>
     <th>Time</th>
-    <th>Time unit</th>
     <th>Miles</th>
     <th>Notes</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -19,13 +15,9 @@
     <td><%= goal.name %></td>
     <td><%= goal.goal_type %></td>
     <td><%= goal.time %></td>
-    <td><%= goal.time_unit %></td>
     <td><%= goal.miles %></td>
     <td><%= goal.notes %></td>
-    <td><%= goal.user_id %></td>
-    <td><%= link_to 'Show', goal %></td>
-    <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
-    <td><%= link_to 'Destroy', goal, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Delete', goal, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
