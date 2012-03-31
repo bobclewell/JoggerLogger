@@ -1,20 +1,16 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-
 jQuery ->
   
   $('#goal_form').hide()
   $('#goal_form h2').hide()
   
   $('.goal_type').click ->
-    $('#goal_selection').slideUp('slow')
-    $('#goal_form').slideDown('slow')
+    $('#goal_selection').fadeOut(500)
+    $('#goal_form').delay(500).fadeIn()
 
   $('#back').click ->
-    $('#goal_form').slideUp('slow')
-    $('#goal_selection').slideDown('slow')
-    $('#goal_form h2').hide()
+    $('#goal_form').fadeOut(500)
+    $('#goal_selection').delay(500).fadeIn()
+    $('#goal_form h2').fadeOut(500)
     $('#goal_goal_type').val('')
     $('#goal_time_unit').val('')
 
