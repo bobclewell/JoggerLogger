@@ -4,10 +4,10 @@ Goal: <%= goal_statement(current_user) %>
 
 <p><%= current_user.distance_unit.humanize %> logged to date: <%= current_user.total_miles %></p>
 
-<%= link_to 'New Jog', new_jog_path %>
+<%= link_to 'New Jog', new_jog_path, :class => "btn btn-success" %>
 
 <h2>Recent Jogs</h2>
-<table>
+<table class="table table-bordered table-striped">
   <tr>
     <th></th>
     <th>When</th>
@@ -24,7 +24,7 @@ Goal: <%= goal_statement(current_user) %>
     <td><%= jog.miles %></td>
     <td><%= jog.display_time %></td>
     <td><%= jog.pace %></td>
-    <td><%= link_to 'Delete', jog, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Delete', jog, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger btn-mini" %></td>
   </tr>
 <% end %>
 </table>

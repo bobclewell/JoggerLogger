@@ -2,11 +2,11 @@ Goal (<%= @current_goal.name %>): <%= goal_statement(current_user) %>
 <br />
 <br />
 
-<%= link_to 'New Goal', new_goal_path %>
+<%= link_to 'New Goal', new_goal_path, :class => "btn btn-success" %>
 
 <h2>Goal History</h2>
 
-<table>
+<table class="table table-bordered table-striped">
   <tr>
     <th>Name</th>
     <th>Goal type</th>
@@ -21,7 +21,7 @@ Goal (<%= @current_goal.name %>): <%= goal_statement(current_user) %>
     <td><%= goal.goal_type %></td>
     <td><%= goal.time %></td>
     <td><%= goal.miles %></td>
-    <td><%= link_to 'Delete', goal, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Delete', goal, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger btn-mini" %></td>
   </tr>
 <% end %>
 </table>
