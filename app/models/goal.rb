@@ -5,7 +5,8 @@ class Goal < ActiveRecord::Base
 
   scope :deleted, where('deleted_at IS NOT NULL')
   scope :exists, where('deleted_at IS NULL')
-  scope :current, where('current = true')
+  scope :current, where('current = true').limit(1)
+  scope :historic, where('current = false')
  
   def single_distance_achieved?(jog, current_user)
     true if jog.miles >= current_user.current_goal.miles

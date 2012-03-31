@@ -1,4 +1,10 @@
-<h1>Listing goals</h1>
+Goal (<%= @current_goal.name %>): <%= goal_statement(current_user) %>
+<br />
+<br />
+
+<%= link_to 'New Goal', new_goal_path %>
+
+<h2>Goal History</h2>
 
 <table>
   <tr>
@@ -6,22 +12,16 @@
     <th>Goal type</th>
     <th>Time</th>
     <th>Miles</th>
-    <th>Notes</th>
     <th></th>
   </tr>
 
-<% @goals.each do |goal| %>
+<% @historic_goals.each do |goal| %>
   <tr>
     <td><%= goal.name %></td>
     <td><%= goal.goal_type %></td>
     <td><%= goal.time %></td>
     <td><%= goal.miles %></td>
-    <td><%= goal.notes %></td>
     <td><%= link_to 'Delete', goal, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Goal', new_goal_path %>
