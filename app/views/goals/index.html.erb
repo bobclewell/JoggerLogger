@@ -1,6 +1,8 @@
-Goal (<%= @current_goal.name %>): <%= goal_statement(current_user) %>
-<br />
-<br />
+<% if @current_goal %>
+  Goal (<%= @current_goal.name %>): <%= goal_statement(current_user) %>
+<% else %>
+  Get started! Create your first goal!
+<% end %>
 
 <%= link_to 'New Goal', new_goal_path, :class => "btn btn-success" %>
 
