@@ -2,7 +2,7 @@ Goal: <%= goal_statement(current_user) %>
 
 <!-- TODO: Best run logic <p>Best run: This is tricky because it depends on Goal</p> -->
 
-<p><%= current_user.distance_unit.humanize %> logged to date: <%= current_user.total_miles %></p>
+<p><%= current_user.distance_unit.humanize unless current_user.distance_unit.blank? %> logged to date: <%= current_user.total_miles %></p>
 
 <%= link_to 'New Jog', new_jog_path, :class => "btn btn-success" %>
 
