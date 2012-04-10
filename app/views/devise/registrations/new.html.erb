@@ -10,6 +10,8 @@
   <%= f.label :password_confirmation, 'Confirm password:' %><%= f.password_field :password_confirmation %>
 
   <%= f.label :distance_unit, 'Distance units:' %><%= f.select :distance_unit, %w[miles kms] %>
+
+  <%= f.label :location, 'Location (optional):' %><%= f.text_field :location %>
   <br />
   <%= f.submit "Sign up", :class => "btn btn-success" %>
 <% end %>
