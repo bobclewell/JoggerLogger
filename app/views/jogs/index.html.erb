@@ -9,7 +9,6 @@ Goal: <%= goal_statement(current_user) %>
 <h2>Recent Jogs</h2>
 <table class="table table-bordered table-striped">
   <tr>
-    <th></th>
     <th>When</th>
     <th>Distance</th>
     <th>Time</th>
@@ -19,12 +18,16 @@ Goal: <%= goal_statement(current_user) %>
 
 <% @jogs.each do |jog| %>
   <tr>
-    <td><% if jog.goal_achieved %><b>*</b><% end %>
     <td><%= jog.jogged_at_string %></td>
     <td><%= jog.miles %></td>
     <td><%= jog.display_time %></td>
     <td><%= jog.pace %></td>
     <td><%= link_to 'Delete', jog, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger btn-mini" %></td>
   </tr>
+  <% if jog.goal_achieved %>
+    <tr>
+      <td colspan="5">Goal Achieved!!</td>
+    </tr>
+  <% end %>
 <% end %>
 </table>
