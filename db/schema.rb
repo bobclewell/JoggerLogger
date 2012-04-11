@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120318024658) do
+ActiveRecord::Schema.define(:version => 20120411014551) do
 
   create_table "goals", :force => true do |t|
     t.string   "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20120318024658) do
     t.datetime "deleted_at"
     t.boolean  "goal_achieved"
     t.integer  "goal_id_achieved"
+    t.integer  "goal_id"
   end
 
   create_table "users", :force => true do |t|

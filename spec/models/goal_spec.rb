@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe Goal do
 
+  it { should have_many :jogs }
+
   context "when one goal already exists for a user" do
     before(:each) do
       @user = Factory(:user)

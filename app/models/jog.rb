@@ -2,6 +2,7 @@ class Jog < ActiveRecord::Base
   include TimeHelper
 
   belongs_to :user
+  belongs_to :goal
   # TODO: validate jog time is in mm:ss OR hh:mm:ss format
 
   scope :deleted, where('deleted_at IS NOT NULL')

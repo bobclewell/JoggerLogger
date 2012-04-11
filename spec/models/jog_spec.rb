@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Jog do
   it { should belong_to :user }
+  it { should belong_to :goal }
 
   context "when a single jog distance goal is the current goal" do
     before(:each) do

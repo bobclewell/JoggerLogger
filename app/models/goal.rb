@@ -1,6 +1,7 @@
 class Goal < ActiveRecord::Base
   include TimeHelper
 
+  has_many :jogs
   # validate :user_can_only_have_one_current_goal
 
   scope :deleted, where('deleted_at IS NOT NULL')
