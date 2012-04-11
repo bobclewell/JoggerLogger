@@ -1,17 +1,22 @@
-Goal: <%= goal_statement(current_user) %>
+<div class="info_header clearfix">
+  <div class="status_messages">
+    <span class="big_label">Goal: </span><%= goal_statement(current_user) %>
+    <!-- TODO: Best run logic <p>Best run: This is tricky because it depends on Goal</p> -->
+  </div><!-- /status_messages -->
 
-<!-- TODO: Best run logic <p>Best run: This is tricky because it depends on Goal</p> -->
+  <div class="distance_to_date">
+    <div class="distance_total">
+      <%= current_user.total_miles %>
+    </div><!-- /distance_total -->
+    <div class="distance_label">
+      <%= current_user.distance_unit.humanize unless current_user.distance_unit.blank? %> logged
+    </div><!-- /distance_label -->
+  </div><!-- /distance_to_date -->
+</div><!-- /info_header -->
 
-<div class="distance_to_date">
-  <div class="distance_total">
-    <%= current_user.total_miles %>
-  </div><!-- /distance_total -->
-  <div class="distance_label">
-    <%= current_user.distance_unit.humanize unless current_user.distance_unit.blank? %> logged
-  </div><!-- /distance_label -->
-</div><!-- /distance_to_date -->
-
-<%= link_to 'New Jog', new_jog_path, :class => "btn btn-success" %>
+<div class="quick_buttons">
+  <%= link_to 'New Jog', new_jog_path, :class => "btn-large btn-success" %>
+</div><!-- /quick_buttons -->
 
 <h3>Recent Jogs</h3>
 <table class="table table-striped">

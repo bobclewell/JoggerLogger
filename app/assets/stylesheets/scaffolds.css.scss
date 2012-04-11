@@ -62,17 +62,39 @@ div {
     font-size: 12px;
     list-style: square; } }
 
+.quick_buttons {
+  margin: 5px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.info_header {
+  // margin: 3px 0;
+}
+
 .distance_to_date {
   float: right;
   font-size: 0.85em;
+  width: 25%;
   .distance_total {
     font-size: 2.8em;
     font-weight: bold;
     padding: 3px 0;
+    text-align: center;
   }
   .distance_label {
     text-align: center;
   }
+}
+
+.status_messages {
+  float: left;
+  font-size: 16px;
+  width: 70%;
+}
+
+.big_label {
+  font-weight: bold;
 }
 
 // To improve appearance in mobile
