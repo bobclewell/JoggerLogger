@@ -1,5 +1,5 @@
 <% if @current_goal %>
-  Goal (<%= @current_goal.name %>): <%= goal_statement(current_user) %>
+  Goal (<%= @current_goal.name %>): <%= current_goal_statement(current_user) %>
 <% else %>
   Get started! Create your first goal!
 <% end %>

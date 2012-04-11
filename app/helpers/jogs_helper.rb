@@ -1,7 +1,8 @@
 module JogsHelper
-  def goal_statement(current_user)
+  
+  def current_goal_statement(current_user)
     if current_user.current_goal.present?
-    case current_user.current_goal.goal_type
+      case current_user.current_goal.goal_type
       when "1"
         "Run #{current_user.current_goal.distance} #{current_user.distance_unit}."
       when "2"
@@ -19,4 +20,25 @@ module JogsHelper
       "You need a new goal - need to make this a link!"
     end
   end
+
+  def goal_statement(goal_id_achieved)
+    goal = Goal.find(goal_id_achieved)
+    # goal = Goal.find(jog.goal_id)
+    # debugger
+    case goal.goal_type
+    when "1"
+      "Run #{goal.distance} #{current_user.distance_unit}."
+    when "2"
+      "Run for #{goal.seconds_to_time_humanized(goal.time)}."
+    when "3"
+      "Run #{goal.distance} #{current_user.distance_unit} in #{goal.seconds_to_time_humanized(goal.time)}."
+    when "4"
+      "Run at a pace of #{goal.seconds_to_time_humanized(goal.time)} for #{goal.distance} #{current_user.distance_unit}."
+    when "5"
+      "Run #{goal.distance.to_i} #{current_user.distance_unit}."
+    when "6"
+      "Run #{goal.distance.to_i} #{current_user.distance_unit} in #{goal.time} #{goal.time_unit}."
+    end
+  end
+
 end
