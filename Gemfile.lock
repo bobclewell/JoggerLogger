@@ -53,7 +53,15 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
+    columnize (0.3.6)
     commonjs (0.2.4)
+    debugger (1.1.1)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.1)
+      debugger-ruby_core_source (~> 1.1)
+    debugger-linecache (1.1.1)
+      debugger-ruby_core_source (>= 1.1.1)
+    debugger-ruby_core_source (1.1.1)
     devise (2.0.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -186,6 +194,7 @@ DEPENDENCIES
   capistrano
   capybara
   coffee-rails
+  debugger
   devise
   factory_girl_rails
   jquery-rails

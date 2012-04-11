@@ -48,4 +48,7 @@ group :development, :test do
   gem 'capybara'
   gem 'shoulda-matchers' #, '~> 1.0.0'
   gem 'simplecov', :require => false
+
+  # To use debugger
+  gem 'debugger'
 end
