@@ -9,31 +9,28 @@
 </head>
 <body>
 
-<div class="navbar navbar-fixed-top">
-  <div="navbar-inner">
-    <div="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      <span class="brand">JoggerLogger</span>
-      <div class="nav-collapse">
-        <ul class="nav">
-        <% if user_signed_in? %>
-          <li><%= link_to "Jogs", jogs_path %></li>
-          <li><%= link_to "Goals", goals_path %></li>
-          <%# link_to "Profile", current_user_path %>
-          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-        <% else %>
-          <li><%= link_to "Sign up", new_user_registration_path %></li>
-          <li><%= link_to "Sign in", new_user_session_path %></li>
-        <% end %>
-        </ul>
-      </div><!-- /nav-collapse -->
-    </div><!-- /container -->
-  </div><!-- /navbar-inner -->
-</div><!-- /navbar -->
+<% if user_signed_in? %>
+  <div class="navbar navbar-fixed-top">
+    <div="navbar-inner">
+      <div="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <span class="brand">JoggerLogger</span>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li><%= link_to "Jogs", jogs_path %></li>
+            <li><%= link_to "Goals", goals_path %></li>
+            <%# link_to "Profile", current_user_path %>
+            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          </ul>
+        </div><!-- /nav-collapse -->
+      </div><!-- /container -->
+    </div><!-- /navbar-inner -->
+  </div><!-- /navbar -->
+<% end %>
 
   <!-- <p class="notice"><%#= notice %></p> -->
 	<!-- <p class="alert"><%#= alert %></p> -->
