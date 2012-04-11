@@ -12,20 +12,30 @@
   <% end %>
 
   <div id="goal_selection">
-    <h1>Select Goal Type</h1>
-    <h2>Single jog goals</h2>
-    <ul>
-      <li class="single_distance goal_type"><%= link_to 'Distance', '#' %><span class="hint">run a marathon</span></li>
-      <li class="single_total_time goal_type"><%= link_to 'Total Time', '#' %><span class="hint">run for an hour</span></li>
-      <li class="single_distance_in_time goal_type"><%= link_to 'Distance in a Time', '#' %><span class="hint">run a 5k in 28 minutes</span></li>
-      <li class="single_distance_at_a_pace goal_type"><%= link_to 'Maintain a Pace', '#' %><span class="hint">run a 10 miler at a 9 min per mile pace</span></li>
-    </ul>
+    <h3>Select Goal Type</h3>
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        Single jog goals
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li class="single_distance goal_type"><%= link_to 'Distance', '#' %><span class="hint">run a marathon</span></li>
+        <li class="single_total_time goal_type"><%= link_to 'Total Time', '#' %><span class="hint">run for an hour</span></li>
+        <li class="single_distance_in_time goal_type"><%= link_to 'Distance in a Time', '#' %><span class="hint">run a 5k in 28 minutes</span></li>
+        <li class="single_distance_at_a_pace goal_type"><%= link_to 'Maintain a Pace', '#' %><span class="hint">run a 10 miler at a 9 min per mile pace</span></li>
+      </ul>
+    </div><!-- /btn-group --><br />
 
-    <h2>Multi run goals</h2>
-    <ul>
-      <li class="multi_distance goal_type"><%= link_to 'Accumulate a Distance', '#' %><span class="hint"><span class="hint">run 1000 miles</span></li>
-      <li class="multi_distance_in_time goal_type"><%= link_to 'Distance Over Time', '#' %><span class="hint">run 600 miles this year</span></li>
-    </ul>
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        Multi jog goals
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li class="multi_distance goal_type"><%= link_to 'Accumulate a Distance', '#' %><span class="hint"><span class="hint">run 1000 miles</span></li>
+        <li class="multi_distance_in_time goal_type"><%= link_to 'Distance Over Time', '#' %><span class="hint">run 600 miles this year</span></li>
+      </ul>
+    </div><!-- /btn-group -->
   </div><!-- /goal_selection -->
 
   <div id="goal_form">
