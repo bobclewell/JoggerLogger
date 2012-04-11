@@ -62,6 +62,19 @@ div {
     font-size: 12px;
     list-style: square; } }
 
+.distance_to_date {
+  float: right;
+  font-size: 0.85em;
+  .distance_total {
+    font-size: 2.8em;
+    font-weight: bold;
+    padding: 3px 0;
+  }
+  .distance_label {
+    text-align: center;
+  }
+}
+
 // To improve appearance in mobile
 //////////////////////////////////////////
 
