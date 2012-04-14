@@ -5,6 +5,20 @@ body {
   font-size: 13px;
   line-height: 18px; }
 
+h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+  font-size: 3em;
+  line-height: 1.2em;
+}
+
+h3 {
+  font-size: 1.7em;
+  line-height: 0;
+}
+
 .navbar {
   background-color: #181B3F;
 }
@@ -97,12 +111,52 @@ div {
   font-weight: bold;
 }
 
+.banner-background-img {
+  // background: url(jogger_home_page.jpg) no-repeat;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.banner {
+  // background: url(jogger_home_page.jpg) no-repeat;
+  color: #fff;
+  // min-height: 100px; // remove this when it streches
+  height: 260px; // remove this when it streches
+  width: 100%;
+}
+
+.banner-text {
+  padding: 1% 0 0 1%;
+  vertical-align: middle;
+}
+
+.content {
+  background-color: #fff;
+  width: 100%;
+}
+
+.sign-up-text {
+  float: right;
+  text-align: right;
+  margin: 4% 2% 0 0;
+}
+
+.site-info {
+  background-color: #ddd;
+}
+
+.home-header {
+  margin: 0;
+  padding: 0;
+}
+
 // To improve appearance in mobile
 //////////////////////////////////////////
 
-body {
-  padding-left: 12px;
-}
+// body {
+//   padding-left: 12px;
+// }
 
 .navbar .brand {
   padding-left: 28px;
