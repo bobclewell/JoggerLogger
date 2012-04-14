@@ -11,7 +11,7 @@
 </div><!-- /row banner -->
 
 <div class="row-fluid content">
-  <div class="span6">
+  <div class="span6 signin-box">
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
      
         <div class="control-group">
@@ -41,10 +41,10 @@
           </div>
         </div><!-- /control-group -->
     <% end %><%# /form %>
-  </div><!-- /span6 -->
+  </div><!-- /span6 signin-box -->
   <div class="span6 site-info">
     info
-  </div><!-- /span6 -->
+  </div><!-- /span6 site-info -->
 </div><!-- /row -->
 
 <%#= render "links" %>
