@@ -5,12 +5,10 @@
       <h2>Log jogs.<br />Track progress.<br />Achieve goals.</h2>
     </div><!-- /banner-text -->
     <div class="sign-up-text">
-      <h3>It's <span class="highlight">free</span>. Sign up faster than you can tie your sneakers.</h3><br /><%= link_to "Sign up now", new_registration_path(resource_name), :class => 'btn btn-large btn-primary' %>
+      <h3>It's <span class="highlight">free</span>. Sign up faster than you can tie your sneakers.</h3><br /><%= link_to "Sign up now", new_registration_path(resource_name), :class => 'btn btn-large btn-success' %>
     </div><!-- sign-up-text -->
   </div><!-- span12 -->
 </div><!-- /row-fluid banner -->
-
-
 
 <div class="row content">
   <div class="span5 offset1 signin-box">
@@ -39,7 +37,7 @@
         <% end -%>
         <div class="control-group">
           <div class="controls">
-            <div><%= f.submit "Sign in", :class => 'btn btn-success' %></div>
+            <div><%= f.submit "Sign in", :class => 'btn btn-large btn-success' %></div>
           </div>
         </div><!-- /control-group -->
     <% end %><%# /form %>
