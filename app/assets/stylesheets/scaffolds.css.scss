@@ -1,5 +1,14 @@
 $orange: #FF7B00;
 
+.home-header {
+  color: $orange;
+  font-family: 'Monoton', cursive;
+  font-size: 48px;
+  height: 56px;
+  margin: -40px 0 0 0;
+  padding: 0 0 0 20px;
+}
+
 body {
   background: url(background.png);
   color: #333;
@@ -8,7 +17,7 @@ body {
   line-height: 18px; }
 
 .navbar {
-  background-color: #181B3F;
+  background-color: $orange;
 }
 
 .btn-navbar {
@@ -70,10 +79,6 @@ div {
   width: 100%;
 }
 
-.info_header {
-  // margin: 3px 0;
-}
-
 .distance_to_date {
   float: right;
   font-size: 0.85em;
@@ -99,16 +104,37 @@ div {
   font-weight: bold;
 }
 
-.banner-background-img {
-  position: absolute;
-  width: 100%;
-  z-index: -1;
-}
-
 .banner {
+  // background: url(jogger_home_page.jpg) no-repeat;
+  border-top: 1px solid $orange;
   color: #fff;
   height: 260px;
+  overflow: hidden;
+  position: relative;
   width: 100%;
+  z-index: 0;
+
+  .banner-background-img {
+    width: 100%;
+  }
+  
+  .banner-text {
+    margin: -27% 0 0 0;
+    padding: 1% 0 0 1%;
+    position: relative;
+    vertical-align: middle;
+    z-index: 1;
+  }
+  
+  .sign-up-text {
+    float: right;
+    // margin: -27% 0 0 0;
+    position: relative;
+    text-align: right;
+    margin: 4% 2% 0 0;
+    z-index: 2;
+  }
+  
   h2, h3 {
     font-family: 'Montserrat', sans-serif;
   }
@@ -126,28 +152,12 @@ div {
   }
 }
 
-.banner-text {
-  padding: 1% 0 0 1%;
-  vertical-align: middle;
-}
-
-.content {
-  background-color: #fff;
-  width: 100%;
-}
-
-.sign-up-text {
-  float: right;
-  text-align: right;
-  margin: 4% 2% 0 0;
-}
-
 .site-info, .signin-box {
   background-color: #ddd;
 }
 
-.home-header {
-  // height: 100px;
+.highlight {
+  color: orange;
 }
 
 // To improve appearance in mobile
@@ -159,17 +169,20 @@ div {
 
 .navbar .brand {
   padding-left: 28px;
-  padding-right: 20px
+  padding-right: 20px;
+  color: #fff;
+  font-family: 'Monoton', cursive;
+  font-size: 28px;
 }
 
-.btn-navbar {
-  margin-right: 25px
-}
+// .btn-navbar {
+//   margin-right: 25px
+// }
 
-.table th, .table td {
-  padding: 5px;
-}
+// .table th, .table td {
+//   padding: 5px;
+// }
 
-.container-fluid {
-  padding: 0 20px 0 0;
-}
+// .container-fluid {
+//   padding: 0 20px 0 0;
+// }
