@@ -28,7 +28,11 @@
             <%= f.password_field :password, :class => "input-medium" %>
           </div><!-- /controls -->
         </div><!-- /control-group -->
-
+        <div class="control-group">
+          <div class="controls">
+            <div><%= f.submit "Sign in", :class => 'btn btn-large btn-warning' %></div>
+          </div>
+        </div><!-- /control-group -->
         <% if devise_mapping.rememberable? -%>
           <div class="control-group">
             <label class="controls">
@@ -36,11 +40,6 @@
             </label>
           </div><!-- /control-group -->
         <% end -%>
-        <div class="control-group">
-          <div class="controls">
-            <div><%= f.submit "Sign in", :class => 'btn btn-large btn-warning' %></div>
-          </div>
-        </div><!-- /control-group -->
     <% end %><%# /form %>
     <div class='visible-phone'><h3>I need an account.</h3><%= link_to "Fast sign up", new_registration_path(resource_name), :class => 'btn btn-large btn-warning', :id => 'sign-up-btn' %></div>
   </div><!-- /span6 signin-box -->
