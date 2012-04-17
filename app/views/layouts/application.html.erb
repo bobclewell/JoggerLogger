@@ -9,9 +9,9 @@
   <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
 </head>
-<body>
 
 <% if user_signed_in? %>
+<body>
   <div class="navbar navbar-fixed-top">
     <div="navbar-inner">
       <div="container">
@@ -33,6 +33,7 @@
     </div><!-- /navbar-inner -->
   </div><!-- /navbar -->
 <% else %>
+<body class='home-page'>
   <div class="home-header">JoggerLogger</div>
 <% end %>
 <!-- <p class="notice"><%#= notice %></p> -->

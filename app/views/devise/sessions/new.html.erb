@@ -2,16 +2,17 @@
   <div class="span12">
     <%= image_tag 'jogger_home_page.jpg', :class => 'banner-background-img' %>
     <div class="banner-text">
-      <h2>Log jogs.<br />Track progress.<br />Achieve goals.</h2>
+      <h2>Log jogs. Track progress. Achieve goals.</h2>
     </div><!-- /banner-text -->
-    <div class="sign-up-text">
-      <h3>It's <span class="highlight">free</span>. Sign up faster than you can tie your sneakers.</h3><br /><%= link_to "Sign up now", new_registration_path(resource_name), :class => 'btn btn-large btn-success' %>
+    <div class="sign-up-text hidden-phone">
+      <h3>It's <span class="highlight">free</span>. Sign up faster than you can tie your sneakers.</h3><br /><%= link_to "Sign up now", new_registration_path(resource_name), :class => 'btn btn-large btn-warning' %>
     </div><!-- sign-up-text -->
   </div><!-- span12 -->
 </div><!-- /row-fluid banner -->
 
 <div class="row content">
-  <div class="span5 offset1 signin-box">
+  <div class="span6 signin-box">
+    <h3>I've got an account.</h3>
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
      
         <div class="control-group">
@@ -37,13 +38,17 @@
         <% end -%>
         <div class="control-group">
           <div class="controls">
-            <div><%= f.submit "Sign in", :class => 'btn btn-large btn-success' %></div>
+            <div><%= f.submit "Sign in", :class => 'btn btn-large btn-warning' %></div>
           </div>
         </div><!-- /control-group -->
     <% end %><%# /form %>
+    <div class='visible-phone'><h3>I need an account.</h3><%= link_to "Fast sign up", new_registration_path(resource_name), :class => 'btn btn-large btn-warning', :id => 'sign-up-btn' %></div>
   </div><!-- /span6 signin-box -->
-  <div class="span5 offset1 site-info">
-    It's a cloud app that works on smart phones, tablets, PCs, ... really, anything with a web browser.<br />No installation required. Just sign-up and get running!
+  <div class="span6 site-info">
+    <ul>
+      <li>JoggerLogger works on smart phones, tablets, PCs... really, anything with a web browser.</li>
+      <li>No installation required. Just sign-up and get running!</li>
+    </ul>
   </div><!-- /span6 site-info -->
 </div><!-- /row -->
 
