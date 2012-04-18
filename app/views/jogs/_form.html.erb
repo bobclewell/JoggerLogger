@@ -15,16 +15,16 @@
   <%= f.hidden_field :goal_id, :value => current_user.current_goal.id %>
   <div class="field">
     <%= f.label :jogged_at, "Date:" %>
-    <%= f.text_field :jogged_at_string, :value => Date.today.strftime("%-m/%-d/%Y"), :size => '11' %>
+    <%= f.text_field :jogged_at_string, :value => Date.today.strftime("%-m/%-d/%Y"), :class => 'input-small' %>
   </div>
   <div class="field">
     <%= f.label :miles, "Distance:" %>
-    <%= f.text_field :miles, :size => '8' %>
+    <%= f.text_field :miles, :class => 'input-small' %>
     <%= current_user.distance_unit %>
   </div>
   <div class="field">
     <%= f.label :seconds, "Time:" %>
-    <%= f.text_field :display_time, :size => '8' %>
+    <%= f.text_field :display_time, :class => 'input-small' %>
     hh:mm:ss
   </div>
   <div class="field">
@@ -32,6 +32,6 @@
     <%= f.text_area :notes, :rows => "5", :cols => "40" %>
   </div>
   <div class="actions">
-    <%= f.submit "Submit", :class => "btn btn-success" %>
+    <%= link_to 'Cancel', jogs_path %>&nbsp;&nbsp;<%= f.submit "Submit", :class => "btn btn-success btn-large" %>
   </div>
 <% end %>

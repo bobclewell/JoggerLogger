@@ -1,3 +1,47 @@
 // Place all the styles related to the Jogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-content {
+  background: #F0F0F0;
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 12px;
+}
+
+li {
+  margin: 0;
+}
+
+// Desktop
+@media (min-width: 981px) {
+}
+
+// Portrait tablet to landscape and desktop
+@media (min-width: 768px) and (max-width: 980px) {
+  .navbar-fixed-top {
+    margin-bottom: 0;
+  }
+}
+
+// Landscape phone to portrait tablet
+@media (max-width: 768px) {
+  .navbar-fixed-top {
+    margin-bottom: 0;
+  }
+  .main-content {
+    background: #F0F0F0;
+    padding: 20px 3px;
+  }
+}
+
+// Landscape phones and down
+@media (max-width: 480px) {
+  body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

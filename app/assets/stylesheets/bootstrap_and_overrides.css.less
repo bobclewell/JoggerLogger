@@ -1,5 +1,5 @@
 @import "twitter/bootstrap/bootstrap";
-body { padding-top: 60px; }
+body { padding-top: 48px; }
 
 @import "twitter/bootstrap/responsive";
 
@@ -21,6 +21,26 @@ body { padding-top: 60px; }
 
 .control-label, .controls {
   color: #F1F0F0;
+  font-size: 1.25em;
+}
+
+.navbar .nav > li > a {
+  color: #fff;
+  padding: 12px 10px 10px;
+  &:hover {
+    color: #000;
+  }
+}
+
+.navbar .nav > li > a:hover {
+  color: #000;
+}
+
+.navbar .nav > li > a, .navbar .dropdown-menu a {
+  font-weight: normal;
+  &:hover {
+    color: #fff;
+  }
 }
 
 // Desktop
@@ -35,9 +55,6 @@ body { padding-top: 60px; }
 
 // Portrait tablet to landscape and desktop
 @media (min-width: 768px) and (max-width: 980px) {
-  #foo {
-    color: yellow;
-  }
   body.home-page {
     padding-top: 24px;
     .home-header {
@@ -84,7 +101,7 @@ body { padding-top: 60px; }
       margin: 0 160px;
     }
     .form-horizontal .control-group {
-      margin: 2px 0;
+      margin: 3px 0 1px;
     }
   }
 }

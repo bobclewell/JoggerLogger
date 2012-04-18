@@ -1,29 +1,32 @@
-<% if @current_goal %>
-  Goal (<%= @current_goal.name %>): <%= current_goal_statement(current_user) %>
-<% else %>
-  Get started! Create your first goal!
-<% end %>
+<div class="row">
+  <div class="span8 offset2">
+    <% if @current_goal %>
+      Goal (<%= @current_goal.name %>): <%= current_goal_statement(current_user) %>
+    <% else %>
+      Get started! Create your first goal!
+    <% end %>
 
-<%= link_to 'New Goal', new_goal_path, :class => "btn btn-success" %>
+    <%= link_to 'New Goal', new_goal_path, :class => "btn btn-success" %>
 
-<h2>Goal History</h2>
+    <h2>Goal History</h2>
+    <table class="table table-striped">
+      <tr>
+        <th>Name</th>
+        <th>Goal type</th>
+        <th>Time</th>
+        <th>Miles</th>
+        <th></th>
+      </tr>
 
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Goal type</th>
-    <th>Time</th>
-    <th>Miles</th>
-    <th></th>
-  </tr>
-
-<% @historic_goals.each do |goal| %>
-  <tr>
-    <td><%= goal.name %></td>
-    <td><%= goal.goal_type %></td>
-    <td><%= goal.time %></td>
-    <td><%= goal.miles %></td>
-    <td><%= link_to 'Delete', goal, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger btn-mini" %></td>
-  </tr>
-<% end %>
-</table>
+    <% @historic_goals.each do |goal| %>
+      <tr>
+        <td><%= goal.name %></td>
+        <td><%= goal.goal_type %></td>
+        <td><%= goal.time %></td>
+        <td><%= goal.miles %></td>
+        <td><%= link_to 'Delete', goal, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger btn-mini" %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div><!-- span6 offset3 -->
+</div><!-- /row -->
