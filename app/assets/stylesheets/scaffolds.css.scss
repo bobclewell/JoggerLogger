@@ -127,10 +127,9 @@ div {
   
   .sign-up-text {
     float: right;
-    // margin: -27% 0 0 0;
     position: relative;
     text-align: right;
-    margin: 4.5% 2% 0 0;
+    margin: 2% 2% 0 0;
     z-index: 2;
   }
   
@@ -163,8 +162,9 @@ div {
 
 .site-info li {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.8em;
-  line-height: 1.5em;
+  font-size: 1.65em;
+  line-height: 1.3em;
+  padding: 6px 0;
 }
 
 .signin-box {
