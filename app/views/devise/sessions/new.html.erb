@@ -40,6 +40,11 @@
             </label>
           </div><!-- /control-group -->
         <% end -%>
+        <div class="control-group">
+          <label class="controls">
+            <%= link_to "Forgot your password?", new_password_path(resource_name), :class => 'home-page-link' %>
+          </label>
+        </div><!-- /control-group -->
     <% end %><%# /form %>
     <div class='visible-phone'><h3>I need an account.</h3><%= link_to "Fast sign up", new_registration_path(resource_name), :class => 'btn btn-large btn-warning', :id => 'sign-up-btn' %></div>
   </div><!-- /span6 signin-box -->
