@@ -12,9 +12,9 @@
   <% end %>
 
   <div id="goal_selection">
-    <h3>Select Goal Type</h3>
+    <h1>What type of goal do you want to achieve?</h1>
     <div class="btn-group">
-      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+      <a class="btn dropdown-toggle btn-large" data-toggle="dropdown" href="#">
         Single jog goals
         <span class="caret"></span>
       </a>
@@ -27,7 +27,7 @@
     </div><!-- /btn-group --><br />
 
     <div class="btn-group">
-      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+      <a class="btn dropdown-toggle btn-large" data-toggle="dropdown" href="#">
         Multi jog goals
         <span class="caret"></span>
       </a>
@@ -65,13 +65,12 @@
       <%= f.text_field :time, :size => '10'  %>
     </div>
     <div class="all">
-      <%= f.label :notes, 'Notes:' %><br />
+      <%= f.label :notes, 'Notes:' %>
       <%= f.text_area :notes, :cols => '40', :rows => '5'  %>
     </div>
     <div class="all">
-      <%= f.submit "Create Goal", :class => "btn btn-success" %>
+      <span id="back"><%= link_to 'Change Goal', '#' %></span>&nbsp;&nbsp;<%= f.submit "Create Goal", :class => "btn btn-success" %>
     </div>
-    <span id="back"><%= link_to 'Change Goal Type', '#' %></span>
   </div><!-- /goal_form -->
 
 <% end %>

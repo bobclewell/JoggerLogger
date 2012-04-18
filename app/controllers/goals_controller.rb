@@ -4,7 +4,7 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @historic_goals = Goal.historic.find_all_by_user_id(current_user.id)
+    @historic_goals = Goal.historic.exists.find_all_by_user_id(current_user.id)
     @current_goal = Goal.current.find_by_user_id(current_user.id)
 
     respond_to do |format|
