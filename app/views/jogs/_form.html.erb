@@ -12,7 +12,9 @@
   <% end %>
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.hidden_field :goal_id, :value => current_user.current_goal.id %>
+  <% if current_user.current_goal %>
+    <%= f.hidden_field :goal_id, :value => current_user.current_goal.id %>
+  <% end %>
   <div class="field">
     <%= f.label :jogged_at, "Date:" %>
     <%= f.text_field :jogged_at_string, :value => Date.today.strftime("%-m/%-d/%Y"), :class => 'input-small' %>

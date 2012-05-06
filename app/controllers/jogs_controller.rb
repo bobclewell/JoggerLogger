@@ -44,7 +44,7 @@ class JogsController < ApplicationController
   def create
     @jog = Jog.new(params[:jog])
     
-    @jog.check_goal_status_for current_user
+    @jog.check_goal_status_for current_user if current_user.current_goal
     #   flash[:notice] = 'Goal Achieved!'
     # end
 

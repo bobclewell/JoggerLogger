@@ -57,7 +57,7 @@
       <%= f.text_field :name, :size => '20' %>
     </div>
     <div class="distance">
-      <%= f.label :miles, 'Miles:' %>
+      <%= f.label :miles, "#{current_user.distance_unit.capitalize}:" %>
       <%= f.text_field :miles, :size => '10' %>
     </div>
     <div class="time">
