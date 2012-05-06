@@ -41,7 +41,7 @@
         <td><%= jog.miles %></td>
         <td><%= jog.display_time %></td>
         <td><%= jog.pace %></td>
-        <td><%= link_to 'Delete', jog, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger btn-mini" %></td>
+        <td><%= link_to 'Delete', jog, confirm: "Are you sure you want to delete you jog on: #{jog.jogged_at_string}?", method: :delete, :class => "btn btn-danger btn-mini" %></td>
       </tr>
     <% end %>
     </table>
