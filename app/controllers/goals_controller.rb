@@ -61,6 +61,7 @@ class GoalsController < ApplicationController
   # PUT /goals/1.json
   def update
     @goal = Goal.find(params[:id])
+    @goal.miles = @goal.kms_to_miles(@goal.miles) if current_user.distance_unit == "kms"
 
     respond_to do |format|
       if @goal.update_attributes(params[:goal])

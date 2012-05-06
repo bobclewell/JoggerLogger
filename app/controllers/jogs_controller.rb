@@ -43,6 +43,7 @@ class JogsController < ApplicationController
   # POST /jogs.json
   def create
     @jog = Jog.new(params[:jog])
+    @jog.miles = @jog.kms_to_miles(@jog.miles) if current_user.distance_unit == "kms"
     
     @jog.check_goal_status_for current_user if current_user.current_goal
     #   flash[:notice] = 'Goal Achieved!'
