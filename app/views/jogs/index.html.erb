@@ -26,7 +26,7 @@
         <th>When</th>
         <th>Distance</th>
         <th>Time</th>
-        <th>Pace</th>
+        <th>Pace (per <%= current_user.distance_unit.singularize %>)</th>
         <th></th>
       </tr>
 
@@ -38,7 +38,7 @@
       <% end %>
       <tr>
         <td><%= jog.jogged_at_string %></td>
-        <td><%= jog.miles %></td>
+        <td><%= jog.distance(current_user) %></td>
         <td><%= jog.display_time %></td>
         <td><%= jog.pace %></td>
         <td><%= link_to 'Delete', jog, confirm: "Are you sure you want to delete you jog on: #{jog.jogged_at_string}?", method: :delete, :class => "btn btn-danger btn-mini" %></td>
