@@ -6,8 +6,8 @@ describe Goal do
 
   context "when one goal already exists for a user" do
     before(:each) do
-      @user = Factory(:user)
-      @goal_one = Factory(:single_distance_10_miles)
+      @user = FactoryGirl.create(:user)
+      @goal_one = FactoryGirl.create(:single_distance_10_miles)
     end
 
     it "should not save when trying to add a second current goal." do
@@ -21,8 +21,8 @@ describe Goal do
 
   context "when a single distance goal is set" do
     before(:each) do
-      @user = Factory(:user)
-      @goal = Factory(:single_distance_10_miles)
+      @user = FactoryGirl.create(:user)
+      @goal = FactoryGirl.create(:single_distance_10_miles)
     end
 
     it "should not get marked achieved if the distance is not run." do
@@ -43,8 +43,8 @@ describe Goal do
 
   context "when a single total time goal is set" do
     before(:each) do
-      @user = Factory(:user)
-      @goal = Factory(:single_total_time_1_hour)
+      @user = FactoryGirl.create(:user)
+      @goal = FactoryGirl.create(:single_total_time_1_hour)
     end
 
     it "should not get marked achieved if the time is less than the goal" do
@@ -65,8 +65,8 @@ describe Goal do
 
   context "when a single distance in a time goal is set" do
     before(:each) do
-      @user = Factory(:user)
-      @goal = Factory(:single_6_miles_in_1_hour)
+      @user = FactoryGirl.create(:user)
+      @goal = FactoryGirl.create(:single_6_miles_in_1_hour)
     end
 
     it "should not get marked achieved if the distance is too short." do
@@ -102,8 +102,8 @@ describe Goal do
 
   context "when a single distance at a pace goal is set" do
     before(:each) do
-      @user = Factory(:user)
-      @goal = Factory(:single_3_miles_at_9_minute_pace)
+      @user = FactoryGirl.create(:user)
+      @goal = FactoryGirl.create(:single_3_miles_at_9_minute_pace)
     end
 
     it "should not get marked achieved if the distance is too short even if the pace is good." do
@@ -139,8 +139,8 @@ describe Goal do
 
   context "when a multi run distance goal is set" do
     before(:each) do
-      @user = Factory(:user)
-      @goal = Factory(:multi_run_1000_miles)
+      @user = FactoryGirl.create(:user)
+      @goal = FactoryGirl.create(:multi_run_1000_miles)
     end
     
     it "should not get market achieved if the distance is less than the goal." do
@@ -170,8 +170,8 @@ describe Goal do
 
   context "when a multi run distance goal is set" do
     before(:each) do
-      @user = Factory(:user)
-      @goal = Factory(:multi_run_600_miles_in_a_year)
+      @user = FactoryGirl.create(:user)
+      @goal = FactoryGirl.create(:multi_run_600_miles_in_a_year)
     end
 
     it "should not get marked achieved if the distance is reached past the time frame" do
