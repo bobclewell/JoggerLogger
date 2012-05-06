@@ -40,7 +40,7 @@ class Goal < ActiveRecord::Base
   # Custom validation method
   def user_can_only_have_one_current_goal
     users_other_goals = Goal.find_by_user_id(self.user_id)
-    if users_other_goals.current
+    if users_other_goals.present? && users_other_goals.current
       errors.add(:current) << "There can only be one current goal for this user."
     end
   end
