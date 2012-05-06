@@ -44,6 +44,7 @@ class GoalsController < ApplicationController
   # POST /goals.json
   def create
     @goal = Goal.new(params[:goal])
+    @goal.miles = @goal.kms_to_miles(@goal.miles) if current_user.distance_unit == "kms"
 
     respond_to do |format|
       if @goal.save
