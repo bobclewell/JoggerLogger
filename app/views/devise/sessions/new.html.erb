@@ -2,7 +2,8 @@
   <div class="span12">
     <%= image_tag 'jogger_home_page.jpg', :class => 'banner-background-img' %>
     <div class="banner-text">
-      <h2>Track progress<br />Achieve goals</h2>
+      <h2>Track progress<h2/>
+      <h2>Achieve goals</h2>
     </div><!-- /banner-text -->
     <div class="sign-up-text hidden-phone">
       <h3>It's <span class="highlight">free</span>. Sign up faster than you can tie your sneakers.</h3><br /><%= link_to "Sign up now", new_registration_path(resource_name), :class => 'btn btn-large btn-warning' %>
@@ -46,7 +47,7 @@
           </label>
         </div><!-- /control-group -->
     <% end %><%# /form %>
-    <div class='visible-phone'><h3>I need an account.</h3><%= link_to "Fast sign up", new_registration_path(resource_name), :class => 'btn btn-large btn-warning', :id => 'sign-up-btn' %></div>
+    <div class='visible-phone sign-up-box'><h3>Need an account?</h3><%= link_to "Fast sign up", new_registration_path(resource_name), :class => 'btn btn-large btn-warning', :id => 'sign-up-btn' %></div>
   </div><!-- /span6 signin-box -->
   <div class="span6 site-info">
     <ul>
