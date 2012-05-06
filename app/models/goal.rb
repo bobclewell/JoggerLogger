@@ -1,5 +1,6 @@
 class Goal < ActiveRecord::Base
   include TimeHelper
+  include DistanceHelper
 
   has_many :jogs
   validate :user_can_only_have_one_current_goal
@@ -54,10 +55,6 @@ class Goal < ActiveRecord::Base
     else
       "ERROR: Unknown distance unit!"
     end
-  end
-
-  def miles_to_kms(miles)
-    kms = miles * 1.609344
   end
 
   def logically_delete
