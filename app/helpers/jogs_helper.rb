@@ -17,7 +17,7 @@ module JogsHelper
         "Run #{current_user.current_goal.distance.to_i} #{current_user.distance_unit} in #{current_user.current_goal.time} #{current_user.current_goal.time_unit}."
       end
     else
-      "You need a new goal - need to make this a link!"
+      "<a href='/goals/new' class='btn btn-success'>Create your first goal!</a>".html_safe
     end
   end
 
