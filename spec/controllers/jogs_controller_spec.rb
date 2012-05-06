@@ -41,8 +41,8 @@ describe JogsController do
       assigns(:jogs).should eq([jog])
     end
 
-    it "should only select jogs for the current user" do
-      # 
+    it "should only select jogs for the current user"
+      # Pending
   end
 
   describe "GET show" do
