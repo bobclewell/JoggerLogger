@@ -26,9 +26,9 @@
   </div>
   <div class="field">
     <%= f.label :seconds, "Time:" %>
-    <%= f.select :part_hours, 0..9, {}, { :class => 'span1' } %>:
-    <%= f.select :part_minutes, 0..59, { :selected => 30 }, { :class => 'span1' } %>:
-    <%= f.select :part_seconds, 0..59, { :selected => 30 }, { :class => 'span1' } %>
+    <%= f.select :part_hours, 0..9, {}, { :class => 'time-input' } %>:
+    <%= f.select :part_minutes, 0..59, { :selected => 30 }, { :class => 'time-input' } %>:
+    <%= f.select :part_seconds, 0..59, { :selected => 30 }, { :class => 'time-input' } %>
     hh:mm:ss
   </div>
   <div class="field">
