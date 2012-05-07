@@ -29,7 +29,7 @@
         <td><%= goal.goal_type %></td>
         <td><%= goal.time %></td>
         <td><%= goal.miles %></td>
-        <td><%= link_to 'Delete', goal, confirm: "Are you sure you want to delete the goal named: #{goal.name}?", method: :delete, :class => "btn btn-danger btn-mini" %></td>
+        <td><%= link_to '<i class="icon-trash icon-white"></i>'.html_safe, goal, confirm: "Are you sure you want to delete the goal named: #{goal.name}?", method: :delete, :class => "btn btn-danger btn-mini" %></td>
       </tr>
     <% end %>
     </table>
