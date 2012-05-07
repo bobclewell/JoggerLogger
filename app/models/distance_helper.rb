@@ -16,5 +16,16 @@ module DistanceHelper
     miles = kms * 0.621371192
     miles.round(1)
   end
-  
+
+  def distance(user_id)
+    user = User.find_by_id(user_id)
+    if user.distance_unit == "kms"
+      distance = miles_to_kms(miles)
+    elsif user.distance_unit == "miles"
+      distance = miles
+    else
+      "ERROR: Unknown distance unit!"
+    end
+  end
+
 end

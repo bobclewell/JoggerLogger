@@ -46,17 +46,6 @@ class Goal < ActiveRecord::Base
     end
   end
 
-  def distance
-    user = User.find_by_id(self.user_id)
-    if user.distance_unit == "kms"
-      distance = miles_to_kms(miles)
-    elsif user.distance_unit == "miles"
-      distance = miles
-    else
-      "ERROR: Unknown distance unit!"
-    end
-  end
-
   def logically_delete
     self.deleted_at = Time.now
     self.save

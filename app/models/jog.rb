@@ -9,14 +9,6 @@ class Jog < ActiveRecord::Base
   scope :deleted, where('deleted_at IS NOT NULL')
   scope :exists, where('deleted_at IS NULL')
 
-  def distance(current_user)
-    if current_user.distance_unit == "miles"
-      distance = miles
-    else
-      distance = miles_to_kms(miles)
-    end
-  end
-
   def goal_achieved_for(current_user)
     case current_user.current_goal.goal_type
     when "1"
