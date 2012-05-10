@@ -29,7 +29,7 @@
     <%= f.select :part_hours, 0..9, {}, { :class => 'time-input' } %>:
     <%= f.select :part_minutes, 0..59, { :selected => 30 }, { :class => 'time-input' } %>:
     <%= f.select :part_seconds, 0..59, { :selected => 30 }, { :class => 'time-input' } %>
-    hh:mm:ss
+    <span class="help-inline">h:mm:ss</span>
   </div>
   <div class="field">
     <%= f.label :notes, "Notes:" %>
