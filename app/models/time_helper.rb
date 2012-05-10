@@ -8,6 +8,7 @@ module TimeHelper
   end
 
   def pace
+    return 0 if self.miles == 0
     if self.class.name == "Goal" && self.time_unit == "seconds"
       pace = self.time / self.miles unless self.time.blank?
     else

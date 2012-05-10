@@ -8,11 +8,13 @@ module DistanceHelper
   end
 
   def miles_to_kms(miles)
+    return 0 if miles.nil? || miles == 0
     kms = miles * 1.609344
     kms.round(1)
   end
 
   def kms_to_miles(kms)
+    return 0 if kms.nil? || kms == 0
     miles = kms * 0.621371192
     miles.round(1)
   end
