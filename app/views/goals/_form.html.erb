@@ -33,7 +33,7 @@
       </a>
       <ul class="dropdown-menu">
         <li class="multi_distance goal_type"><%= link_to 'Accumulate a Distance', '#' %><span class="hint"><span class="hint">run 1000 miles</span></li>
-        <li class="multi_distance_in_time goal_type"><%= link_to 'Distance Over Time', '#' %><span class="hint">run 600 miles this year</span></li>
+<!--         <li class="multi_distance_in_time goal_type"><%#= link_to 'Distance Over Time', '#' %><span class="hint">run 600 miles this year</span></li> -->
       </ul>
     </div><!-- /btn-group -->
   </div><!-- /goal_selection -->
@@ -45,7 +45,7 @@
     <h2 class="single_distance_in_time">Distance in a Time</h2>
     <h2 class="single_distance_at_a_pace">Maintain a Pace</h2>
     <h2 class="multi_distance">Accumulate a Distance</h2>
-    <h2 class="multi_distance_in_time">Distance Over Time</h2>
+    <!-- <h2 class="multi_distance_in_time">Distance Over Time</h2> -->
 
     <%= f.hidden_field :goal_type %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -61,8 +61,11 @@
       <%= f.text_field :miles, :size => '10' %>
     </div>
     <div class="time">
-      <%= f.label :time, 'Time:' %>
-      <%= f.text_field :time, :size => '10'  %>
+      <%= f.label :seconds, "Time:" %>
+      <%= f.select :part_hours, 0..9, {}, { :class => 'time-input' } %>:
+      <%= f.select :part_minutes, 0..59, { :selected => 30 }, { :class => 'time-input' } %>:
+      <%= f.select :part_seconds, 0..59, { :selected => 30 }, { :class => 'time-input' } %>
+      <span class="help-inline">h:mm:ss</span>
     </div>
     <div class="all">
       <%= f.label :notes, 'Notes:' %>
