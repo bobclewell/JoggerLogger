@@ -31,11 +31,11 @@
     <%= f.select :part_seconds, 0..59, { :selected => 30 }, { :class => 'time-input' } %>
     <span class="help-inline">h:mm:ss</span>
   </div>
-  <div class="field">
-    <%= f.label :notes, "Notes:" %>
-    <%= f.text_area :notes, :rows => "5", :cols => "40" %>
-  </div>
+<!--   <div class="field">
+    <%#= f.label :notes, "Notes:" %>
+    <%#= f.text_area :notes, :rows => "5", :cols => "40" %>
+  </div> -->
   <div class="actions">
-    <%= link_to 'Cancel', jogs_path %>&nbsp;&nbsp;<%= f.submit "Submit", :class => "btn btn-success" %>
+    <%= link_to 'Cancel', jogs_path %>&nbsp;&nbsp;<%= f.submit "Save", :class => "btn btn-success" %>
   </div>
 <% end %>

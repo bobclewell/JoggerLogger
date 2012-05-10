@@ -53,7 +53,7 @@
     <%= f.hidden_field :started_at, :value => "#{Time.now}" %>
 
     <div class="all">
-      <%= f.label :name, 'Name:' %>
+      <%= f.label :name, 'Goal Name (optional):' %>
       <%= f.text_field :name, :size => '20' %>
     </div>
     <div class="distance">
@@ -67,10 +67,10 @@
       <%= f.select :part_seconds, 0..59, { :selected => 30 }, { :class => 'time-input' } %>
       <span class="help-inline">h:mm:ss</span>
     </div>
-    <div class="all">
-      <%= f.label :notes, 'Notes:' %>
-      <%= f.text_area :notes, :cols => '40', :rows => '5'  %>
-    </div>
+<!--     <div class="all">
+      <%#= f.label :notes, 'Notes:' %>
+      <%#= f.text_area :notes, :cols => '40', :rows => '5'  %>
+    </div> -->
     <div class="all">
       <span id="back"><%= link_to 'Change Goal', '#' %></span>&nbsp;&nbsp;<%= f.submit "Create Goal", :class => "btn btn-success" %>
     </div>
