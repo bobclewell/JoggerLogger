@@ -45,6 +45,7 @@ class GoalsController < ApplicationController
   def create
     @goal = Goal.new(params[:goal])
     @goal.miles = @goal.kms_to_miles(@goal.miles) if current_user.distance_unit == "kms"
+    @goal.time = params[:goal][:part_seconds].to_i + (params[:goal][:part_minutes].to_i * 60) + (params[:goal][:part_hours].to_i * 3600)
 
     respond_to do |format|
       if @goal.save
