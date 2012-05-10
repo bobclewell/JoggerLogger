@@ -102,4 +102,25 @@ module TimeHelper
     self.seconds = time_to_seconds(time_string)
     self.save
   end
+
+  # TODO: Find a better way to construct the seconds data from the 3
+  # separate drop-downs, which will clean up the below.
+
+  def part_hours
+  end
+
+  def part_hours=(p_hours)
+  end
+
+  def part_minutes
+  end
+
+  def part_minutes=(p_minutes)
+  end
+
+  def part_seconds
+  end
+
+  def part_seconds=(p_seconds)
+  end
 end

@@ -50,27 +50,6 @@ class Jog < ActiveRecord::Base
     self.jogged_at = Date.strptime jogged_at_str, '%m/%d/%Y' unless jogged_at_str.nil?
   end
 
-  # TODO: Find a better way to construct the seconds data from the 3
-  # separate drop-downs, which will clean up the below.
-
-  def part_hours
-  end
-
-  def part_hours=(p_hours)
-  end
-
-  def part_minutes
-  end
-
-  def part_minutes=(p_minutes)
-  end
-
-  def part_seconds
-  end
-
-  def part_seconds=(p_seconds)
-  end
-
   def logically_delete
     self.deleted_at = Time.now
     self.save
