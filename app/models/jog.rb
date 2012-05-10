@@ -4,7 +4,7 @@ class Jog < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :goal
-  # TODO: validate jog time is in mm:ss OR hh:mm:ss format
+  validates_numericality_of :miles
 
   scope :deleted, where('deleted_at IS NOT NULL')
   scope :exists, where('deleted_at IS NULL')
