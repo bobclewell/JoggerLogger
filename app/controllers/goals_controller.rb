@@ -43,6 +43,8 @@ class GoalsController < ApplicationController
   # POST /goals
   # POST /goals.json
   def create
+    current_goal = current_user.current_goal
+    current_goal.update_attributes(:current => false)
     @goal = Goal.new(params[:goal])
     @goal.miles = @goal.kms_to_miles(@goal.miles) if current_user.distance_unit == "kms"
     @goal.time = params[:goal][:part_seconds].to_i + (params[:goal][:part_minutes].to_i * 60) + (params[:goal][:part_hours].to_i * 3600)

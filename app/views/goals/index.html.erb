@@ -10,7 +10,7 @@
       </div><!-- /status_messages -->
     </div><!-- /info_header -->
     <div class="quick_buttons">
-      <%= link_to 'New Goal', new_goal_path, :class => "btn btn-success btn-large" %>
+      <%= link_to 'New Goal', new_goal_path, :class => "btn btn-success btn-large", :confirm => 'Creating a new goal will make your current goal inactive and move it into Past Goals? Are you sure you want to do this?' %>
     </div><!-- /quick_buttons -->
 
     <h3>Past Goals</h3>
