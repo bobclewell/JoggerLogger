@@ -38,5 +38,5 @@ production:
   database: joggerlogger_production
   pool: 5
   username: root
-  password:
+  password: d@t@ goes here
   socket: /var/run/mysqld/mysqld.sock
