@@ -22,14 +22,14 @@ role :app, 'abe'                          # This may be the same as your `Web` s
 role :db,  'abe', :primary => true # This is where Rails migrations will run
 role :db,  'abe'
 
-after "deploy:update_code", "bundle:install"
+# after "deploy:update_code", "bundle:install"
  
-namespace :bundle do
-  desc "Bundle install"
-  task :install, :roles => :app do
-    run "cd #{current_release} && #{sudo} bundle install"
-  end
-end
+# namespace :bundle do
+#   desc "Bundle install"
+#   task :install, :roles => :app do
+#     run "cd #{current_release} && #{sudo} bundle install"
+#   end
+# end
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
