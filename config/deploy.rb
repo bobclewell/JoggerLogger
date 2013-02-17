@@ -22,7 +22,7 @@ role :app, 'abe'                          # This may be the same as your `Web` s
 role :db,  'abe', :primary => true # This is where Rails migrations will run
 role :db,  'abe'
 
-after 'deploy:update_code', 'deploy:symlink_db'
+before 'deploy:assets:precompile', 'deploy:symlink_db'
 
 namespace :deploy do
   desc "Symlinks the database.yml"
