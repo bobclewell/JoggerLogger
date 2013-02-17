@@ -16,3 +16,4 @@
 
 # Ignore coverage output files
 /coverage
+config/database.yml
