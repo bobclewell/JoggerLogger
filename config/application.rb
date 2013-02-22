@@ -1,4 +1,5 @@
 require 'rails/all'
+require 'devise'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
