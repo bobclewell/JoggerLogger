@@ -1,25 +1,20 @@
 source 'https://rubygems.org'
 
-gem 'rails' #, '3.2.1'
+gem 'rails'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'mysql2'
-
+# Postgres Database
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails' #,   '~> 3.2.3'
-  gem 'coffee-rails' #, '~> 3.2.1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer'
+  # gem 'therubyracer'
 
-  gem 'uglifier' #, '>= 1.0.3'
-
-  gem 'twitter-bootstrap-rails'
+  gem 'uglifier'
 end
 
 gem 'jquery-rails'
@@ -30,17 +25,14 @@ gem 'jquery-rails'
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
-# Use unicorn as the web server
-gem 'unicorn'
-
-# Deploy with Capistrano
-gem 'capistrano'
-
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 # Authenticate with Devise
 gem 'devise'
+
+# Performance Monitoring with New Relic
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'rspec-rails' #, '~> 2.6'
