@@ -17,3 +17,7 @@
 # Ignore coverage output files
 /coverage
 config/database.yml
+
+public/.DS_Store
+
+.DS_Store
