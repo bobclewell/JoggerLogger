@@ -1,19 +1,21 @@
+require 'active_support'
+
 FactoryGirl.define do
-  factory :single_distance_10_miles, :class => Goal do
+  factory :single_distance_10_miles, :class => 'Goal' do
     goal_type "1"
     miles 10
     user_id 1
     current true
   end
 
-  factory :single_distance_13_miles, :class => Goal do
+  factory :single_distance_13_miles, :class => 'Goal' do
     goal_type "1"
     miles 13
     user_id 1
     current true
   end
 
-  factory :single_total_time_1_hour, :class => Goal do
+  factory :single_total_time_1_hour, :class => 'Goal' do
     goal_type "2"
     time_unit "seconds"
     time 3600
@@ -21,7 +23,7 @@ FactoryGirl.define do
     current true
   end
 
-  factory :single_6_miles_in_1_hour, :class => Goal do
+  factory :single_6_miles_in_1_hour, :class => 'Goal' do
     goal_type "3"
     miles 6
     time_unit "seconds"
@@ -30,7 +32,7 @@ FactoryGirl.define do
     current true
   end
 
-  factory :single_3_miles_at_9_minute_pace, :class => Goal do
+  factory :single_3_miles_at_9_minute_pace, :class => 'Goal' do
     goal_type "4"
     miles 3
     time_unit "seconds"
@@ -39,7 +41,7 @@ FactoryGirl.define do
     current true
   end
 
-  factory :multi_run_1000_miles, :class => Goal do
+  factory :multi_run_1000_miles, :class => 'Goal' do
     goal_type "5"
     miles 1000
     user_id 1
@@ -47,14 +49,15 @@ FactoryGirl.define do
     started_at "2012-01-01"
   end
 
-  factory :multi_run_600_miles_in_a_year, :class => Goal do
+  factory :multi_run_600_miles_in_a_year, :class => 'Goal' do
     goal_type "6"
     miles 600
     time_unit "days"
     time 365
     user_id 1
     current true
-    started_at (Time.now - 1.year)
+    started_at "2012-02-20"
+    # started_at (Time.now - 1.year)
   end
 end
 
