@@ -35,10 +35,10 @@ gem 'devise'
 gem 'newrelic_rpm'
 
 group :development, :test do
-  gem 'rspec-rails' #, '~> 2.6'
-  gem 'factory_girl_rails' #, '~> 1.1.0'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
   gem 'capybara'
-  gem 'shoulda-matchers' #, '~> 1.0.0'
+  gem 'shoulda-matchers'
   gem 'simplecov', :require => false
 
   # To use debugger
