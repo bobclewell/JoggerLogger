@@ -1,60 +1,46 @@
-<div class="row-fluid banner">
-  <div class="span12">
-    <%= image_tag 'jogger_home_page.jpg', :class => 'banner-background-img' %>
-    <div class="banner-text">
-      <h2>Track progress<h2/>
-      <h2>Achieve goals</h2>
-    </div><!-- /banner-text -->
-    <div class="sign-up-text hidden-phone">
-      <h3>It's <span class="highlight">free</span>. Sign up faster than you can tie your sneakers.</h3><br /><%= link_to "Sign up now", new_registration_path(resource_name), :class => 'btn btn-large btn-warning' %>
-    </div><!-- sign-up-text -->
-  </div><!-- span12 -->
-</div><!-- /row-fluid banner -->
+<div>
+  <h3>It's free. Sign up faster than you can tie your sneakers.</h3><br /><%= link_to "Sign up now", new_registration_path(resource_name), :class => 'btn btn-large btn-warning' %>
+</div>
 
-<div class="row content">
-  <div class="span6 signin-box">
-    <h3>I've got an account.</h3>
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
-     
-        <div class="control-group">
-          <%= f.label :email, 'Email:', :class => "control-label" %>
-          <div class="controls">
-            <%= f.email_field :email, :class => "input-medium" %>
-          </div><!-- /controls -->
-        </div><!-- /control-group -->
 
-        <div class="control-group">
-          <%= f.label :password, 'Password:', :class => "control-label" %>
-          <div class="controls">
-            <%= f.password_field :password, :class => "input-medium" %>
-          </div><!-- /controls -->
-        </div><!-- /control-group -->
-        <div class="control-group">
-          <div class="controls">
-            <div><%= f.submit "Sign in", :class => 'btn btn-large btn-warning' %></div>
-          </div>
-        </div><!-- /control-group -->
-        <% if devise_mapping.rememberable? -%>
-          <div class="control-group">
-            <label class="controls">
-              <%= f.check_box :remember_me %> Stay signed in
-            </label>
-          </div><!-- /control-group -->
-        <% end -%>
-        <div class="control-group">
-          <label class="controls">
-            <%= link_to "Forgot your password?", new_password_path(resource_name), :class => 'home-page-link' %>
-          </label>
-        </div><!-- /control-group -->
-    <% end %><%# /form %>
-    <div class='visible-phone sign-up-box'><h3>Need an account?</h3><%= link_to "Fast sign up", new_registration_path(resource_name), :class => 'btn btn-large btn-warning', :id => 'sign-up-btn' %></div>
-  </div><!-- /span6 signin-box -->
-  <div class="span6 site-info">
-    <ul>
-      <li>JoggerLogger works on smart phones, tablets, PCs... really, anything with a web browser.</li>
-      <li>No installation required. Just sign-up and get running!</li>
-    </ul>
-  </div><!-- /span6 site-info -->
-</div><!-- /row -->
 
-<%#= render "links" %>
+
+
+<h3>I've got an account.</h3>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+ 
+    <% if current_user %>Foo<% else %>Bar<% end %>
+
+    <div>
+      <%= f.label :email, 'Email:' %>
+      <%= f.email_field :email %>
+    </div>
+
+    <div>
+      <%= f.label :password, 'Password:' %>
+      <%= f.password_field :password %>
+    </div>
+
+    <div><%= f.submit "Sign in" %></div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="control-group">
+        <label class="controls">
+          <%= f.check_box :remember_me %> Stay signed in
+        </label>
+      </div><!-- /control-group -->
+    <% end -%>
+    <div class="control-group">
+      <label class="controls">
+        <%= link_to "Forgot your password?", new_password_path(resource_name), :class => 'home-page-link' %>
+      </label>
+    </div><!-- /control-group -->
+<% end %><%# /form %>
+<div class='visible-phone sign-up-box'><h3>Need an account?</h3><%= link_to "Fast sign up", new_registration_path(resource_name), :class => 'btn btn-large btn-warning', :id => 'sign-up-btn' %></div>
+</div><!-- /span6 signin-box -->
+<div class="span6 site-info">
+<ul>
+  <li>JoggerLogger works on smart phones, tablets, PCs... really, anything with a web browser.</li>
+  <li>No installation required. Just sign-up and get running!</li>
+</ul>
+

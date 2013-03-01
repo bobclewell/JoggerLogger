@@ -1,4 +1,4 @@
-<%= form_for(@jog) do |f| %>
+<%= form_for(@jog, :html => { :class => "custom"}) do |f| %>
   <% if @jog.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@jog.errors.count, "error") %> prohibited this jog from being saved:</h2>
@@ -15,27 +15,55 @@
   <% if current_user.current_goal %>
     <%= f.hidden_field :goal_id, :value => current_user.current_goal.id %>
   <% end %>
-  <div class="field">
-    <%= f.label :jogged_at, "Date:" %>
-    <%= f.text_field :jogged_at_string, :value => Date.today.strftime("%-m/%-d/%Y"), :class => 'input-small' %>
+
+  <div class='row'>
+    <div class='small-3 columns'>
+      <%= f.label :jogged_at, "Date?", class: 'inline' %>
+    </div>
+    <div class='small-6 columns end'>
+      <%= f.text_field :jogged_at_string, :value => Date.today.strftime("%-m/%-d/%Y") %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :miles, "Distance:" %>
-    <%= f.text_field :miles, :class => 'input-small' %>
-    <%= current_user.distance_unit %>
+
+  <div class='row'>
+    <div class='small-3 columns'>
+      <%= f.label :miles, "How far?" %>
+    </div>
+    <div class='row collapse'>
+      <div class='small-6 columns'>
+        <%= f.text_field :miles, type: 'text', pattern: '[0-9]*' %>
+      </div>
+      <div class='small-2 columns end'>
+        <span class='postfix'><%= current_user.distance_unit %></span>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :seconds, "Time:" %>
-    <%= f.select :part_hours, 0..9, {}, { :class => 'time-input' } %>:
-    <%= f.select :part_minutes, 0..59, { :selected => 30 }, { :class => 'time-input' } %>:
-    <%= f.select :part_seconds, 0..59, { :selected => 30 }, { :class => 'time-input' } %>
-    <span class="help-inline">h:mm:ss</span>
+  
+  <div class='row'>
+    <div class='small-3 columns'>
+      <%= f.label :seconds, "Time? (h:mm:ss)" %>
+    </div>
+    <div class='row'>
+      <div class='small-3 columns'>
+        <%= f.select :part_hours, 0..9, {}, { :class => 'time-input' } %>
+      </div>
+      <div class='small-3 columns'>
+        <%= f.select :part_minutes, 0..59, { :selected => 30 }, { :class => 'time-input' } %>
+      </div>
+      <div class='small-3 columns end'>
+        <%= f.select :part_seconds, 0..59, { :selected => 30 }, { :class => 'time-input' } %>
+      </div>
+    </div>
   </div>
-<!--   <div class="field">
-    <%#= f.label :notes, "Notes:" %>
-    <%#= f.text_area :notes, :rows => "5", :cols => "40" %>
-  </div> -->
-  <div class="actions">
-    <%= link_to 'Cancel', jogs_path %>&nbsp;&nbsp;<%= f.submit "Save", :class => "btn btn-success" %>
+  
+  <div>
+    <%= f.label :notes, "Notes:" %>
+    <%= f.text_area :notes, :rows => "5", :cols => "40" %>
+  </div>
+  
+  <div>
+    <%= f.submit "Save", class: "radius success button hide-for-small" %>
+    <%= f.submit "Save", class: "radius success button expand show-for-small" %>
+    <%= link_to 'Cancel', jogs_path, class: "radius secondary button" %>
   </div>
 <% end %>

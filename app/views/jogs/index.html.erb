@@ -1,49 +1,40 @@
-<div class="row">
-  <div class="span8 offset2 main-content">
-    <div class="info_header clearfix">
-      <div class="status_messages">
-        <span class="big_label">Goal: </span><%= current_goal_statement(current_user) %>
-        <!-- TODO: Best run logic <p>Best run: This is tricky because it depends on Goal</p> -->
-      </div><!-- /status_messages -->
+<div>
+  <%= link_to 'New Jog', new_jog_path, class: 'radius button' %>
+</div>
 
-      <div class="distance_to_date">
-        <div class="distance_total">
-          <%= current_user.total_miles %>
-        </div><!-- /distance_total -->
-        <div class="distance_label">
-          <%= current_user.distance_unit.humanize unless current_user.distance_unit.blank? %> logged
-        </div><!-- /distance_label -->
-      </div><!-- /distance_to_date -->
-    </div><!-- /info_header -->
+<div>
+  <span class="big_label">Goal: </span><%= current_goal_statement(current_user) %>
+  <!-- TODO: Best run logic <p>Best run: This is tricky because it depends on Goal</p> -->
+</div>
 
-    <div class="quick_buttons">
-      <%= link_to 'New Jog', new_jog_path, :class => "btn btn-large btn-success" %>
-    </div><!-- /quick_buttons -->
+<div>
+  Total Miles Logged
+  <%= current_user.total_miles %>
+  <%= current_user.distance_unit.humanize unless current_user.distance_unit.blank? %>
+</div>
 
-    <h3>Recent Jogs</h3>
-    <table class="table table-striped">
-      <tr>
-        <th>When</th>
-        <th>Distance</th>
-        <th>Time</th>
-        <th>Pace</th>
-        <th></th>
-      </tr>
+Recent Jogs
+<table>
+  <tr>
+    <th>When</th>
+    <th>Distance</th>
+    <th>Time</th>
+    <th>Pace</th>
+    <th></th>
+  </tr>
 
-    <% @jogs.each do |jog| %>
-      <% if jog.goal_achieved %>
-        <tr>
-          <td colspan="5" style="background: #5BB75B; color: white;"><span class="icon-flag icon-white"></span> Goal Achieved: <%= goal_statement(jog.goal_id_achieved) %></td>
-        </tr>
-      <% end %>
-      <tr>
-        <td><%= jog.jogged_at_string %></td>
-        <td><%= jog.distance(current_user.id) %></td>
-        <td><%= jog.display_time %></td>
-        <td><%= jog.pace %></td>
-        <td><%= link_to '<i class="icon-trash icon-white"></i>'.html_safe, jog, confirm: "Are you sure you want to delete you jog on: #{jog.jogged_at_string}?", method: :delete, :class => "btn btn-danger btn-mini" %></td>
-      </tr>
-    <% end %>
-    </table>
-  </div><!-- span8 offset2 -->
-</div><!-- /row -->
+<% @jogs.each do |jog| %>
+  <% if jog.goal_achieved %>
+    <tr>
+      <td>Goal Achieved: <%= goal_statement(jog.goal_id_achieved) %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td><%= jog.jogged_at_string %></td>
+    <td><%= jog.distance(current_user.id) %></td>
+    <td><%= jog.display_time %></td>
+    <td><%= jog.pace %></td>
+    <td><%= link_to '<i class="icon-trash icon-white"></i>'.html_safe, jog, confirm: "Are you sure you want to delete you jog on: #{jog.jogged_at_string}?", method: :delete %></td>
+  </tr>
+<% end %>
+</table>
