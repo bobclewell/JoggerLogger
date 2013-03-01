@@ -8,8 +8,6 @@
 
 <h3>I've got an account.</h3>
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
- 
-    <% if current_user %>Foo<% else %>Bar<% end %>
 
     <div>
       <%= f.label :email, 'Email:' %>
