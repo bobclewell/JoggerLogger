@@ -8,7 +8,8 @@
       <%= f.label :email %>
       <%= f.email_field :email %>
 
-      <%= f.submit "Send me reset password instructions", :class => 'btn btn-success' %>&nbsp;&nbsp;<%= link_to "Cancel", root_url %>
+      <%= link_to "Cancel", root_url, class: 'button secondary radius' %>
+      <%= f.submit "Send me reset password instructions", class: 'button radius success' %>
     <% end %>
   </div><!-- span6 offset3 -->
 </div><!-- /row -->

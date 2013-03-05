@@ -15,7 +15,7 @@
 
       <%= f.label :location, 'Location (optional):' %><%= f.text_field :location %>
       <br />
-      <%= link_to "Cancel", root_url %>&nbsp;&nbsp;<%= f.submit "Sign up", :class => "btn btn-success" %>
+      <%= link_to "Cancel", root_url, class: 'secondary radius button' %>&nbsp;&nbsp;<%= f.submit "Sign up", class: "secondary success button" %>
     <% end %>
 
     <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
