@@ -15,13 +15,13 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier'
+
+  # Foundation SASS framework
+  gem 'compass-rails'
+  gem 'zurb-foundation'
 end
 
 gem 'jquery-rails'
-
-# Foundation SASS framework
-gem 'compass-rails'
-gem 'zurb-foundation'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
