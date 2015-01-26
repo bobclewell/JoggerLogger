@@ -46,8 +46,6 @@ class JogsController < ApplicationController
     @jog.miles = @jog.kms_to_miles(@jog.miles) if current_user.distance_unit == "kms"
     @jog.seconds = params[:jog][:part_seconds].to_i + (params[:jog][:part_minutes].to_i * 60) + (params[:jog][:part_hours].to_i * 3600)
     @jog.check_goal_status_for current_user if current_user.current_goal
-    #   flash[:notice] = 'Goal Achieved!'
-    # end
 
     respond_to do |format|
       if @jog.save
